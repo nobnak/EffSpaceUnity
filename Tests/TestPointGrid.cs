@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using EfficientSpacialDataStructure.Extensions.PointGridExt;
 using EfficientSpacialDataStructure.Models;
 using NUnit.Framework;
 using Unity.Mathematics;
@@ -57,11 +58,12 @@ public class TestPointGrid {
     public void Benchmark() {
         var markers = new string[] {
             "PGrid.Query_Cell",
-            "PGrid.IterateLeaves"
+            "PGrid.IterateLeaves",
+            "PGrid.Contains",
         };
 
         var cellSize = new int2(100);
-        var cellCount = new int2(1 << 7);
+        var cellCount = new int2(1 << 10);
         var fieldSize = cellSize * cellCount;
 
         var grid = new PointGrid(cellCount, cellSize);
@@ -103,10 +105,20 @@ public class TestPointGrid {
         }
         Debug.Log($"Nodes in cell: [{lmin}, {lmax}]");
 
+        lmin = int.MaxValue;
+        lmax = int.MinValue;
+        for (var i = 0; i < n; i++) {
+            var p = points[i];
+            var c = grid.Query_Cell(new int4(p.xy, p.xy + cellSize)).Count();
+            if (c < lmin) lmin = c;
+            if (lmax < c) lmax = c;
+        }
+        Debug.Log($"Per cell query: [{lmin}, {lmax}]");
+
         Measure.Method(() => {
             for (var i = 0; i < n; i++) {
                 var p = points[i];
-                grid.Query(p.xyxy).Count();
+                grid.Query(new int4(p.xy, p.xy + cellSize)).Count();
             }
         }).SampleGroup("Query for grid({n},{n})")
         .ProfilerMarkers(markers)

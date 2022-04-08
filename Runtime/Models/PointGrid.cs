@@ -4,10 +4,13 @@ using EfficientSpacialDataStructure.Extensions.AABBExt;
 using EfficientSpacialDataStructure.Extensions.PointGridExt;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.Profiling;
 
 namespace EfficientSpacialDataStructure.Models {
 
     public class PointGrid {
+        public static ProfilerMarker P_Contains = new ProfilerMarker("PGrid.Contains");
+
         public readonly FreeList<Element> elements;
         public readonly FreeList<LinkedElementNode> leaves;
         public readonly int[,] grid;
@@ -46,10 +49,12 @@ namespace EfficientSpacialDataStructure.Models {
         }
         public IEnumerable<int> Query(int4 aabb) {
             foreach (var index in this.Query_Cell(aabb)) {
-                foreach (var (_, leaf) in this.IterateLeaves(index)) { 
+                foreach (var (_, leaf) in this.IterateLeaves(index)) {
+                    P_Contains.Begin();
                     var e = elements[leaf.element];
                     if (aabb.Contains(e.pos))
                         yield return leaf.element;
+                    P_Contains.End();
                 }
             }
         }
