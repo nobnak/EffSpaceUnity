@@ -1,7 +1,9 @@
 {
-    "name": "EfficientSpacialDataStructureUnity",
+    "name": "EfficientSpatialDataStructure",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "Unity.Mathematics"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
