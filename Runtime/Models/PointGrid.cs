@@ -48,13 +48,17 @@ namespace EfficientSpacialDataStructure.Models {
             elements.Remove(element);
         }
         public IEnumerable<int> Query(int4 aabb) {
-            foreach (var index in this.Query_Cell(aabb)) {
-                foreach (var (_, leaf) in this.IterateLeaves(index)) {
-                    P_Contains.Begin();
-                    var e = elements[leaf.element];
-                    if (aabb.Contains(e.pos))
-                        yield return leaf.element;
-                    P_Contains.End();
+            var mm = math.clamp(aabb / cellSize.xyxy, 0, cellCount.xyxy - 1);
+            for (var ix = mm.x; ix <= mm.z; ix++) {
+                for (var iy = mm.y; iy <= mm.w; iy++) {
+                    var cell = grid[ix, iy];
+                    while (cell != C.SENTRY) {
+                        var leaf = leaves[cell];
+                        var e = elements[leaf.element];
+                        if (aabb.Contains(e.pos))
+                            yield return leaf.element;
+                        cell = leaf.next;
+                    }
                 }
             }
         }

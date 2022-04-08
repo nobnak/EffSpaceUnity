@@ -50,21 +50,24 @@ namespace EfficientSpacialDataStructure.Extensions.PointGridExt {
                     yield return new int2(ix, iy);
             P_Query_Cell.End();
         }
-        public static IEnumerable<(int i, LinkedElementNode leaf)> IterateLeaves(
-            this PointGrid p, int2 cellIndex) {
+        public static IEnumerable<LinkedElementNode> IterateLeaves(
+            this PointGrid p, int ix, int iy) {
             P_IterateLeaves.Begin();
-            var cell = p.grid[cellIndex.x, cellIndex.y];
+            var cell = p.grid[ix, iy];
             while (cell != C.SENTRY) {
                 var leaf = p.leaves[cell];
-                yield return (cell, leaf);
+                yield return leaf;
                 cell = leaf.next;
             }
             P_IterateLeaves.End();
         }
-        public static int2 Clamp(this PointGrid p, int2 cellIndex) => math.clamp(cellIndex, 0, p.cellCount - 1);
+        public static int2 Clamp(this PointGrid p, int2 cellIndex)
+            => math.clamp(cellIndex, 0, p.cellCount - 1);
+        public static int4 Clamp(this PointGrid p, int4 cellIndex)
+            => math.clamp(cellIndex, 0, p.cellCount.xyxy - 1);
         public static bool TryGetCellIndex(this PointGrid p, int2 pos, out int2 index) {
             index = p.GetCellIndex(pos);
-            return math.all(0 <= index) && math.all(index < p.cellCount);
+            return math.all(0 <= index & index < p.cellCount);
         }
         public static int2 GetCellIndex(this PointGrid p, int2 pos) => pos / p.cellSize;
     }

@@ -96,8 +96,7 @@ public class TestPointGrid {
         for (var i = 0; i < cellCount.x; i++) {
             for (var j = 0; j < cellCount.y; j++) {
                 var ic = new int2(i, j);
-                var cell = EfficientSpacialDataStructure.Extensions.PointGridExt
-                    .PointGridExtension.IterateLeaves(grid, ic);
+                var cell = grid.IterateLeaves(i, j);
                 var count = cell.Count();
                 if (count < lmin) lmin = count;
                 if (lmax < count) lmax = count;
@@ -121,7 +120,13 @@ public class TestPointGrid {
                 grid.Query(new int4(p.xy, p.xy + cellSize)).Count();
             }
         }).SampleGroup("Query for grid({n},{n})")
-        .ProfilerMarkers(markers)
         .Run();
+
+        var list = new List<int4>();
+        Measure.Method(() => {
+            for (var i = 0; i < n; i++)
+                list.Add(cellSize.xyxy);
+        }).SampleGroup("int2 to int4").Run();
+
     }
 }
