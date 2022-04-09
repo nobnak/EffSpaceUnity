@@ -14,8 +14,8 @@ namespace EfficientSpacialDataStructure.Extensions.PointGridExt {
         public static readonly ProfilerMarker P_Query_Cell = new ProfilerMarker("PGrid.Query_Cell");
         public static readonly ProfilerMarker P_IterateLeaves = new ProfilerMarker("PGrid.IterateLeaves");
 
-        public static void Remove_Leaf(this PointGrid p, int2 index, int element) {
-            var cell = p.grid[index.x, index.y];
+        public static void Remove_Leaf(this PointGrid p, int index, int element) {
+            var cell = p.grid[index];
             var curr = cell;
 
             while (curr != C.SENTRY && curr == cell) {
@@ -26,7 +26,7 @@ namespace EfficientSpacialDataStructure.Extensions.PointGridExt {
                 }
                 curr = leaf.next;
             }
-            p.grid[index.x, index.y] = cell;
+            p.grid[index] = cell;
 
             var prev = cell;
             while (curr != C.SENTRY) {
@@ -41,34 +41,37 @@ namespace EfficientSpacialDataStructure.Extensions.PointGridExt {
                 curr = leaf.next;
             }
         }
-        public static IEnumerable<int2> Query_Cell(this PointGrid p, int4 aabb) {
-            P_Query_Cell.Begin();
-            var imin = p.Clamp(p.GetCellIndex(aabb.xy));
-            var imax = p.Clamp(p.GetCellIndex(aabb.zw));
-            for (var ix = imin.x; ix <= imax.x; ix++)
-                for (var iy = imin.y; iy <= imax.y; iy++)
-                    yield return new int2(ix, iy);
-            P_Query_Cell.End();
+        public static IEnumerable<int> Query_Cell(this PointGrid p, int4 aabb) {
+            var minmax = p.CellRange(aabb);
+            for (var iy = minmax.y; iy <= minmax.w; iy++) {
+                var yoffset = iy * p.cellCount.x;
+                for (var ix = minmax.x; ix <= minmax.z; ix++)
+                    yield return ix + yoffset;
+            }
         }
         public static IEnumerable<LinkedElementNode> IterateLeaves(
-            this PointGrid p, int ix, int iy) {
-            P_IterateLeaves.Begin();
-            var cell = p.grid[ix, iy];
+            this PointGrid p, int index) {
+            var cell = p.grid[index];
             while (cell != C.SENTRY) {
                 var leaf = p.leaves[cell];
                 yield return leaf;
                 cell = leaf.next;
             }
-            P_IterateLeaves.End();
         }
         public static int2 Clamp(this PointGrid p, int2 cellIndex)
             => math.clamp(cellIndex, 0, p.cellCount - 1);
         public static int4 Clamp(this PointGrid p, int4 cellIndex)
             => math.clamp(cellIndex, 0, p.cellCount.xyxy - 1);
-        public static bool TryGetCellIndex(this PointGrid p, int2 pos, out int2 index) {
-            index = p.GetCellIndex(pos);
-            return math.all(0 <= index & index < p.cellCount);
+        public static bool TryGetCellIndex(this PointGrid p, int2 pos, out int index) {
+            var i = pos / p.cellSize;
+            index = math.csum(i * p.indexScaler);
+            return math.all(0 <= i) && math.all(i < p.cellCount);
         }
-        public static int2 GetCellIndex(this PointGrid p, int2 pos) => pos / p.cellSize;
+        public static int GetCellIndex(this PointGrid p, int2 pos) {
+            var i = math.clamp(pos / p.cellSize, 0, p.cellCount - 1);
+            return math.csum(i * p.indexScaler);
+        }
+        public static int4 CellRange(this PointGrid p, int4 aabb)
+            => math.clamp(aabb / p.cellSize.xyxy, 0, p.cellCount.xyxy - 1);
     }
 }

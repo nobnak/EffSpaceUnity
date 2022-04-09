@@ -6,10 +6,18 @@ using EfficientSpacialDataStructure.Models;
 using NUnit.Framework;
 using Unity.Mathematics;
 using Unity.PerformanceTesting;
+using Unity.Profiling;
 using UnityEngine;
 using UnityEngine.TestTools;
 
 public class TestPointGrid {
+
+    public static readonly ProfilerMarker P_AddElement = new ProfilerMarker("Add element");
+    public static readonly ProfilerMarker P_RemoveElement = new ProfilerMarker("Remove element");
+
+    public const int n = 10000;
+    public const int q = 10000;
+
     [Test]
     public void TestPointGridSimplePasses() {
         var rand = Unity.Mathematics.Random.CreateFromIndex(31);
@@ -54,23 +62,14 @@ public class TestPointGrid {
     }
 
     [Test]
-    [Performance]
-    public void Benchmark() {
-        var markers = new string[] {
-            "PGrid.Query_Cell",
-            "PGrid.IterateLeaves",
-            "PGrid.Contains",
-        };
-
+    public void TestRandom() {
         var cellSize = new int2(100);
-        var cellCount = new int2(1 << 10);
+        var cellCount = new int2(1 << 7);
         var fieldSize = cellSize * cellCount;
 
         var grid = new PointGrid(cellCount, cellSize);
         var rand = Unity.Mathematics.Random.CreateFromIndex(31);
-        Debug.Log($"Grid: ({grid.grid.GetLength(0)}, {grid.grid.GetLength(1)}), cellCount={cellCount}");
 
-        var n = 10000;
         var points = new List<int2>();
         var ids = new List<int>();
         var elements = new List<int>();
@@ -91,42 +90,16 @@ public class TestPointGrid {
             Assert.IsTrue(cell.Contains(e));
         }
 
-        var lmin = int.MaxValue;
-        var lmax = int.MinValue;
-        for (var i = 0; i < cellCount.x; i++) {
-            for (var j = 0; j < cellCount.y; j++) {
-                var ic = new int2(i, j);
-                var cell = grid.IterateLeaves(i, j);
-                var count = cell.Count();
-                if (count < lmin) lmin = count;
-                if (lmax < count) lmax = count;
-            }
+        var samples = 1000;
+        var sum = 0;
+        for (var i = 0; i < samples; i++) {
+            var j = rand.NextInt(0, grid.totalCellCount);
+            var count = grid.IterateLeaves(j).Count();
+            sum += count;
         }
-        Debug.Log($"Nodes in cell: [{lmin}, {lmax}]");
-
-        lmin = int.MaxValue;
-        lmax = int.MinValue;
-        for (var i = 0; i < n; i++) {
-            var p = points[i];
-            var c = grid.Query_Cell(new int4(p.xy, p.xy + cellSize)).Count();
-            if (c < lmin) lmin = c;
-            if (lmax < c) lmax = c;
-        }
-        Debug.Log($"Per cell query: [{lmin}, {lmax}]");
-
-        Measure.Method(() => {
-            for (var i = 0; i < n; i++) {
-                var p = points[i];
-                grid.Query(new int4(p.xy, p.xy + cellSize)).Count();
-            }
-        }).SampleGroup("Query for grid({n},{n})")
-        .Run();
-
-        var list = new List<int4>();
-        Measure.Method(() => {
-            for (var i = 0; i < n; i++)
-                list.Add(cellSize.xyxy);
-        }).SampleGroup("int2 to int4").Run();
+        var avg = (float)sum / samples;
+        var density = (float)n / grid.totalCellCount;
+        Assert.Less(avg, 2f * density);
 
     }
 }

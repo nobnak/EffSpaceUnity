@@ -9,24 +9,31 @@ using Unity.Profiling;
 namespace EfficientSpacialDataStructure.Models {
 
     public class PointGrid {
-        public static ProfilerMarker P_Contains = new ProfilerMarker("PGrid.Contains");
+
+        public static ProfilerMarker P_RectIndex = new ProfilerMarker("PointGrid.RectIndex");
 
         public readonly FreeList<Element> elements;
         public readonly FreeList<LinkedElementNode> leaves;
-        public readonly int[,] grid;
+        public readonly int[] grid;
 
         public readonly int2 cellCount;
         public readonly int2 cellSize;
         public readonly int2 fieldSize;
+
+        public readonly int2 indexScaler;
+        public readonly int totalCellCount;
 
         public PointGrid(int2 cellCount, int2 cellSize) {
             this.cellCount = cellCount;
             this.cellSize = cellSize;
             this.fieldSize = cellCount * cellSize;
 
+            this.indexScaler = new int2(1, cellCount.x);
+            this.totalCellCount = cellCount.x * cellCount.y;
+
             elements = new FreeList<Element>();
             leaves = new FreeList<LinkedElementNode>();
-            grid = new int[cellCount.x, cellCount.y];
+            grid = new int[totalCellCount];
 
             Clear();
         }
@@ -35,9 +42,9 @@ namespace EfficientSpacialDataStructure.Models {
             var element = C.SENTRY;
             if (this.TryGetCellIndex(pos, out var index)) {
                 element = elements.Insert(new Element() { id = id, pos = pos });
-                var cell = grid[index.x, index.y];
+                var cell = grid[index];
                 cell = leaves.Insert(new LinkedElementNode() { element = element, next = cell });
-                grid[index.x, index.y] = cell;
+                grid[index] = cell;
             }
             return element;
         }
@@ -49,9 +56,10 @@ namespace EfficientSpacialDataStructure.Models {
         }
         public IEnumerable<int> Query(int4 aabb) {
             var mm = math.clamp(aabb / cellSize.xyxy, 0, cellCount.xyxy - 1);
-            for (var ix = mm.x; ix <= mm.z; ix++) {
-                for (var iy = mm.y; iy <= mm.w; iy++) {
-                    var cell = grid[ix, iy];
+            for (var iy = mm.y; iy <= mm.w; iy++) {
+                var yoffset = iy * cellCount.x;
+                for (var ix = mm.x; ix <= mm.z; ix++) {
+                    var cell = grid[ix + yoffset];
                     while (cell != C.SENTRY) {
                         var leaf = leaves[cell];
                         var e = elements[leaf.element];
@@ -65,9 +73,8 @@ namespace EfficientSpacialDataStructure.Models {
         public void Clear() {
             elements.Clear();
             leaves.Clear();
-            for (var ix = 0; ix < cellCount.x; ix++)
-                for (var iy = 0; iy < cellCount.y; iy++)
-                    grid[ix, iy] = -1;
+            for (var i = 0; i < totalCellCount; i++)
+                grid[i] = -1;
         }
     }
 }
