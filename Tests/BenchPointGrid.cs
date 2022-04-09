@@ -15,7 +15,8 @@ public class BenchPointGrid {
     public static readonly ProfilerMarker P_AddElement = new ProfilerMarker("Add element");
     public static readonly ProfilerMarker P_RemoveElement = new ProfilerMarker("Remove element");
 
-    public const int n = 10000;
+    public const int D = 10;
+    public const int n = 100000;
     public const int q = 10000;
     [Test]
     [Performance]
@@ -25,7 +26,7 @@ public class BenchPointGrid {
         };
 
         var cellSize = new int2(100);
-        var cellCount = new int2(1 << 7);
+        var cellCount = new int2(1 << D);
         var fieldSize = cellSize * cellCount;
 
         var grid = new PointGrid(cellCount, cellSize);

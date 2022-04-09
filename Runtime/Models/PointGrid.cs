@@ -50,8 +50,33 @@ namespace EfficientSpacialDataStructure.Models {
         }
         public void Remove(int element) {
             var e = elements[element];
-            foreach (var index in this.Query_Cell(e.pos.xyxy))
-                this.Remove_Leaf(index, element);
+            var mm = e.pos / cellSize;
+            var index = math.csum(mm * indexScaler);
+            var cell = grid[index];
+            var curr = cell;
+
+            while (curr != C.SENTRY && curr == cell) {
+                var leaf = leaves[curr];
+                if (leaf.element == element) {
+                    cell = leaf.next;
+                    leaves.Remove(curr);
+                }
+                curr = leaf.next;
+            }
+            grid[index] = cell;
+
+            var prev = cell;
+            while (curr != C.SENTRY) {
+                var leaf = leaves[curr];
+                if (leaf.element == element) {
+                    var leaf_prev = leaves[prev];
+                    leaf_prev.next = leaf.next;
+                    leaves[prev] = leaf_prev;
+                    leaves.Remove(curr);
+                }
+                prev = curr;
+                curr = leaf.next;
+            }
             elements.Remove(element);
         }
         public IEnumerable<int> Query(int4 aabb) {
