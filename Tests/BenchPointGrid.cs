@@ -59,9 +59,12 @@ public class BenchPointGrid {
     [Test]
     [Performance]
     public void BenchmarkAddRemove() {
+        var p_addElement = new SampleGroup("Add element", SampleUnit.Millisecond);
+        var p_removeElement = new SampleGroup("Remove element", SampleUnit.Millisecond);
+
         var markers = new SampleGroup[] {
-            new SampleGroup("Add element", SampleUnit.Millisecond),
-            new SampleGroup("Remove element", SampleUnit.Millisecond),
+            p_addElement,
+            p_removeElement,
         };
 
         var cellSize = new int2(100);
@@ -99,5 +102,7 @@ public class BenchPointGrid {
             P_RemoveElement.End();
         }).ProfilerMarkers(markers)
         .Run();
+
+        Debug.Log($"add: {p_addElement.Average}\nremove: {p_removeElement.Average}");
     }
 }

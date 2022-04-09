@@ -10,8 +10,6 @@ namespace EfficientSpacialDataStructure.Models {
 
     public class PointGrid {
 
-        public static ProfilerMarker P_RectIndex = new ProfilerMarker("PointGrid.RectIndex");
-
         public readonly FreeList<Element> elements;
         public readonly FreeList<LinkedElementNode> leaves;
         public readonly int[] grid;
