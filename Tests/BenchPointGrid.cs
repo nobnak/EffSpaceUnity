@@ -25,35 +25,42 @@ public class BenchPointGrid {
             "PointGrid.RectIndex",
         };
 
-        var cellSize = new int2(100);
-        var cellCount = new int2(1 << D);
-        var fieldSize = cellSize * cellCount;
+        var emin = 2;
+        var emax = 6;
+        for (var e = emin; e <= emax; e++) {
+            var n = (int)math.round(math.pow(10, e));
+            var sg = new SampleGroup($"Query: {n} points in grid", SampleUnit.Millisecond);
 
-        var grid = new PointGrid(cellCount, cellSize);
-        var rand = Unity.Mathematics.Random.CreateFromIndex(31);
-        var points = new List<int2>();
-        var ids = new List<int>();
-        var elements = new List<int>();
-        for (var i = 0; i < n; i++) {
-            var id = rand.NextInt();
-            var p = rand.NextInt2(0, fieldSize);
+            var cellSize = new int2(100);
+            var cellCount = new int2(1 << D);
+            var fieldSize = cellSize * cellCount;
 
-            var ie = grid.Insert(id, p);
-            points.Add(p);
-            ids.Add(id);
-            elements.Add(ie);
-        }
+            var grid = new PointGrid(cellCount, cellSize);
+            var rand = Unity.Mathematics.Random.CreateFromIndex(31);
+            var points = new List<int2>();
+            var ids = new List<int>();
+            var elements = new List<int>();
+            for (var i = 0; i < n; i++) {
+                var id = rand.NextInt();
+                var p = rand.NextInt2(0, fieldSize);
 
-        var queryAABB = Enumerable.Range(0, q)
-            .Select(v => points[rand.NextInt(points.Count)])
-            .Select(p => new int4(p, p + cellSize)).ToArray();
-        Measure.Method(() => {
-            for (var i = 0; i < queryAABB.Length; i++) {
-                grid.Query(queryAABB[i]).Count();
+                var ie = grid.Insert(id, p);
+                points.Add(p);
+                ids.Add(id);
+                elements.Add(ie);
             }
-        }).SampleGroup("Query for grid({n},{n})")
-        .ProfilerMarkers(markers)
-        .Run();
+
+            var queryAABB = Enumerable.Range(0, q)
+                .Select(v => points[rand.NextInt(points.Count)])
+                .Select(p => new int4(p, p + cellSize)).ToArray();
+            Measure.Method(() => {
+                for (var i = 0; i < queryAABB.Length; i++) {
+                    grid.Query(queryAABB[i]).Count();
+                }
+            })
+            .SampleGroup(sg)
+            .Run();
+        }
 
     }
     [Test]
@@ -102,7 +109,5 @@ public class BenchPointGrid {
             P_RemoveElement.End();
         }).ProfilerMarkers(markers)
         .Run();
-
-        Debug.Log($"add: {p_addElement.Average}\nremove: {p_removeElement.Average}");
     }
 }
