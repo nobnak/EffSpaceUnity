@@ -1,5 +1,5 @@
 {
-    "name": "EfficientSpatialDataStructure",
+    "name": "EffSpace",
     "rootNamespace": "",
     "references": [
         "Unity.Mathematics"

@@ -1,12 +1,12 @@
 {
-    "name": "Tests",
+    "name": "EffSpace.Tests",
     "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Unity.Mathematics",
         "Unity.PerformanceTesting",
-        "EfficientSpatialDataStructure"
+        "EffSpace"
     ],
     "includePlatforms": [
         "Editor"
