@@ -3,8 +3,13 @@
 [Unity project](https://github.com/nobnak/Test-EfficientSpatialDataStructureUnity) of this module.
 
 ## Data Structures
-- Uniform Grid : Under construction
+- Uniform Grid : 
+  - [PointGrid](Runtime/Models/PointGrid.cs) (int) 
 - QuadTree: TODO
+
+## Performance
+Point Grid
+![Point Grid perf.](Images/UniformGrid01.png)
 
 ## References
 1. user4842163, [Efficient (and well explained) implementation of a Quadtree for 2D collision detection](https://stackoverflow.com/questions/41946007/efficient-and-well-explained-implementation-of-a-quadtree-for-2d-collision-det# ), Stackoveflow, 2018
