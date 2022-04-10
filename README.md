@@ -8,7 +8,7 @@
 - QuadTree: TODO
 
 ## Performance
-Point Grid
+### Point Grid
 ![Point Grid perf.](Images/UniformGrid01.png)
 
 ## References
