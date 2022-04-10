@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EfficientSpacialDataStructure.Collections {
+namespace EffSpace.Collections {
 
     public class FreeList<T> {
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EfficientSpacialDataStructure.Models {
+namespace EffSpace.Models {
 
     public struct LinkedElementNode {
         public int next;

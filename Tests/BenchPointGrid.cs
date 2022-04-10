@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using EfficientSpacialDataStructure.Extensions.PointGridExt;
-using EfficientSpacialDataStructure.Models;
+using EffSpace.Extensions.PointGridExt;
+using EffSpace.Models;
 using NUnit.Framework;
 using Unity.Mathematics;
 using Unity.PerformanceTesting;

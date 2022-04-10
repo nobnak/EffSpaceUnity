@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Mathematics;
 
-namespace EfficientSpacialDataStructure.Models {
+namespace EffSpace.Models {
 
     public struct Element {
 

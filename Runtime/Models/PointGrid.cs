@@ -1,12 +1,12 @@
-using EfficientSpacialDataStructure.Collections;
-using EfficientSpacialDataStructure.Constants;
-using EfficientSpacialDataStructure.Extensions.AABBExt;
-using EfficientSpacialDataStructure.Extensions.PointGridExt;
+using EffSpace.Collections;
+using EffSpace.Constants;
+using EffSpace.Extensions.AABBExt;
+using EffSpace.Extensions.PointGridExt;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.Profiling;
 
-namespace EfficientSpacialDataStructure.Models {
+namespace EffSpace.Models {
 
     public class PointGrid {
 

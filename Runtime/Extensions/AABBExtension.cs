@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace EfficientSpacialDataStructure.Extensions.AABBExt {
+namespace EffSpace.Extensions.AABBExt {
 
     public static class AABBExtension {
 
