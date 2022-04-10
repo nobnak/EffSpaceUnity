@@ -8,6 +8,10 @@
 - QuadTree: TODO
 
 ## Performance
+On Razer Blade stealth 13 (2020)
+- Core i7-1165G7
+- Unity 2020.3
+
 ### Point Grid
 ![Point Grid perf.](Images/UniformGrid01.png)
 
