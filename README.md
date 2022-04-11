@@ -13,7 +13,7 @@ On Razer Blade stealth 13 (2020)
 - Unity 2020.3
 
 ### Point Grid
-![Point Grid perf.](Images/UniformGrid01.png)
+![Point Grid perf.](Images/PointGrid01.png)
 
 ## References
 1. user4842163, [Efficient (and well explained) implementation of a Quadtree for 2D collision detection](https://stackoverflow.com/questions/41946007/efficient-and-well-explained-implementation-of-a-quadtree-for-2d-collision-det# ), Stackoveflow, 2018
