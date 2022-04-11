@@ -48,10 +48,11 @@ public class BenchPointGrid {
 
             var queryAABB = Enumerable.Range(0, q)
                 .Select(v => points[rand.NextInt(points.Count)])
+                .Select(p => (p, p + cellSize))
                 .ToArray();
             Measure.Method(() => {
                 for (var i = 0; i < queryAABB.Length; i++) {
-                    grid.Query(queryAABB[i], queryAABB[i]).Count();
+                    grid.Query(queryAABB[i].p, queryAABB[i].Item2).Count();
                 }
             })
             .SampleGroup(sg)
