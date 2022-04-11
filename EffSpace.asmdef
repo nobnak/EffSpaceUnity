@@ -2,7 +2,8 @@
     "name": "EffSpace",
     "rootNamespace": "",
     "references": [
-        "Unity.Mathematics"
+        "Unity.Mathematics",
+        "Unity.Burst"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

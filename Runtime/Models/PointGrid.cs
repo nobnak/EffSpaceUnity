@@ -2,13 +2,15 @@ using EffSpace.Collections;
 using EffSpace.Constants;
 using EffSpace.Extensions.AABBExt;
 using EffSpace.Extensions.PointGridExt;
+using EffSpace.Interfaces;
 using System.Collections.Generic;
+using Unity.Burst;
 using Unity.Mathematics;
 using Unity.Profiling;
 
 namespace EffSpace.Models {
-
-    public class PointGrid {
+    [BurstCompile]
+    public class PointGrid : IPointField<int2> {
 
         public readonly FreeList<Element> elements;
         public readonly FreeList<LinkedElementNode> leaves;

@@ -3,12 +3,14 @@ using EffSpace.Constants;
 using EffSpace.Models;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst;
 using Unity.Mathematics;
 using Unity.Profiling;
 using UnityEngine;
 
 namespace EffSpace.Extensions.PointGridExt {
 
+    [BurstCompile]
     public static class PointGridExtension {
 
         public static readonly ProfilerMarker P_Query_Cell = new ProfilerMarker("PGrid.Query_Cell");
