@@ -37,12 +37,12 @@ public class TestPointGrid {
             elements.Add(e);
             ids.Add(id);
 
-            Assert.IsTrue(grid.Query(p.xyxy).Contains(e));
+            Assert.IsTrue(grid.Query(p.xy, p.xy).Contains(e));
             Assert.AreEqual(id, grid.elements[e].id);
         }
 
-        Assert.AreEqual(elements[0], grid.Query(points[0].xyxy).First());
-        var q01 = grid.Query(points[1].xyxy).ToArray();
+        Assert.AreEqual(elements[0], grid.Query(points[0], points[0]).First());
+        var q01 = grid.Query(points[1], points[1]).ToArray();
         foreach (var i in elements.Skip(1).Take(2))
             Assert.IsTrue(q01.Contains(i));
 
@@ -52,10 +52,10 @@ public class TestPointGrid {
             var id = ids[last];
             var p = points[last];
 
-            Assert.AreEqual(elements.Count, grid.Query(new int4(0, 0, 2, 2)).Count());
-            Assert.IsTrue(grid.Query(p.xyxy).Contains(e));
+            Assert.AreEqual(elements.Count, grid.Query(new int2(0, 0), new int2(2, 2)).Count());
+            Assert.IsTrue(grid.Query(p, p).Contains(e));
             grid.Remove(e);
-            Assert.IsFalse(grid.Query(p.xyxy).Contains(e));
+            Assert.IsFalse(grid.Query(p, p).Contains(e));
 
             elements.RemoveAt(last);
         }
@@ -86,7 +86,7 @@ public class TestPointGrid {
         for (var i = 0; i < n; i++) {
             var p = points[i];
             var e = elements[i];
-            var cell = grid.Query(p.xyxy).ToArray();
+            var cell = grid.Query(p, p).ToArray();
             Assert.IsTrue(cell.Contains(e));
         }
 

@@ -1,14 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using EffSpace.Extensions.PointGridExt;
 using EffSpace.Models;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using Unity.PerformanceTesting;
 using Unity.Profiling;
-using UnityEngine;
-using UnityEngine.TestTools;
 
 public class BenchPointGrid {
 
@@ -52,10 +48,10 @@ public class BenchPointGrid {
 
             var queryAABB = Enumerable.Range(0, q)
                 .Select(v => points[rand.NextInt(points.Count)])
-                .Select(p => new int4(p, p + cellSize)).ToArray();
+                .ToArray();
             Measure.Method(() => {
                 for (var i = 0; i < queryAABB.Length; i++) {
-                    grid.Query(queryAABB[i]).Count();
+                    grid.Query(queryAABB[i], queryAABB[i]).Count();
                 }
             })
             .SampleGroup(sg)

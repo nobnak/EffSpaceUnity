@@ -77,16 +77,17 @@ namespace EffSpace.Models {
             }
             elements.Remove(element);
         }
-        public IEnumerable<int> Query(int4 aabb) {
-            var mm = math.clamp(aabb / cellSize.xyxy, 0, cellCount.xyxy - 1);
-            for (var iy = mm.y; iy <= mm.w; iy++) {
+        public IEnumerable<int> Query(int2 aabb_min, int2 aabb_max) {
+            var bmin = math.clamp(aabb_min / cellSize, 0, cellCount - 1);
+            var bmax = math.clamp(aabb_max / cellSize, 0, cellCount - 1);
+            for (var iy = bmin.y; iy <= bmax.y; iy++) {
                 var yoffset = iy * cellCount.x;
-                for (var ix = mm.x; ix <= mm.z; ix++) {
+                for (var ix = bmin.x; ix <= bmax.x; ix++) {
                     var cell = grid[ix + yoffset];
                     while (cell != C.SENTRY) {
                         var leaf = leaves[cell];
                         var e = elements[leaf.element];
-                        if (aabb.Contains(e.pos))
+                        if (e.pos.IsIn(aabb_min, aabb_max))
                             yield return leaf.element;
                         cell = leaf.next;
                     }
