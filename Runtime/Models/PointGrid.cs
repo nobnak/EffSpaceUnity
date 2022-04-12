@@ -7,7 +7,7 @@ using Unity.Mathematics;
 
 namespace EffSpace.Models {
 
-    public struct PointGrid {
+    public struct PointGrid : IPointField<int2> {
 
         public readonly FreeList<Element> elements;
         public readonly FreeList<LinkedElementNode> leaves;
