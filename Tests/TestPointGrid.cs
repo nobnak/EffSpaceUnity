@@ -1,14 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using EffSpace.Extensions.PointGridExt;
 using EffSpace.Models;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
-using Unity.PerformanceTesting;
 using Unity.Profiling;
-using UnityEngine;
-using UnityEngine.TestTools;
+using EffSpace.Extensions;
 
 public class TestPointGrid {
 

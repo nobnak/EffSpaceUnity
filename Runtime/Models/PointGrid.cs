@@ -1,16 +1,13 @@
 using EffSpace.Collections;
 using EffSpace.Constants;
-using EffSpace.Extensions.AABBExt;
-using EffSpace.Extensions.PointGridExt;
+using EffSpace.Extensions;
 using EffSpace.Interfaces;
 using System.Collections.Generic;
-using Unity.Burst;
 using Unity.Mathematics;
-using Unity.Profiling;
 
 namespace EffSpace.Models {
-    [BurstCompile]
-    public class PointGrid : IPointField<int2> {
+
+    public struct PointGrid {
 
         public readonly FreeList<Element> elements;
         public readonly FreeList<LinkedElementNode> leaves;
@@ -40,7 +37,7 @@ namespace EffSpace.Models {
 
         public int Insert(int id, int2 pos) {
             var element = C.SENTRY;
-            if (this.TryGetCellIndex(pos, out var index)) {
+            if (PointGridExt.TryGetCellIndex(cellCount, cellSize, pos, out var index)) {
                 element = elements.Insert(new Element() { id = id, pos = pos });
                 var cell = grid[index];
                 cell = leaves.Insert(new LinkedElementNode() { element = element, next = cell });
@@ -80,8 +77,12 @@ namespace EffSpace.Models {
             elements.Remove(element);
         }
         public IEnumerable<int> Query(int2 aabb_min, int2 aabb_max) {
+#if false
             var bmin = math.clamp(aabb_min / cellSize, 0, cellCount - 1);
             var bmax = math.clamp(aabb_max / cellSize, 0, cellCount - 1);
+#else
+            AABBExt.RangeFromAABB(cellCount, cellSize, aabb_min, aabb_max, out var bmin, out var bmax);
+#endif
             for (var iy = bmin.y; iy <= bmax.y; iy++) {
                 var yoffset = iy * cellCount.x;
                 for (var ix = bmin.x; ix <= bmax.x; ix++) {
@@ -89,7 +90,7 @@ namespace EffSpace.Models {
                     while (cell != C.SENTRY) {
                         var leaf = leaves[cell];
                         var e = elements[leaf.element];
-                        if (e.pos.IsIn(aabb_min, aabb_max))
+                        if (AABBExt.IsIn(e.pos, aabb_min, aabb_max))
                             yield return leaf.element;
                         cell = leaf.next;
                     }
