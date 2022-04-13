@@ -24,5 +24,16 @@ namespace EffSpace.Extensions {
             i_aabb_min = (int2)math.mad(aabb_min, toIntScale, toIntOffset);
             i_aabb_max = (int2)math.mad(aabb_max, toIntScale, toIntOffset);
         }
+
+		public static void RecommendGrid(
+			float2 screen, int vertCellCount,
+			out int2 cellCount, out float2 cellSize) {
+			var vertCellSize = screen.y / vertCellCount;
+			vertCellSize = screen.y / math.floor(screen.y / vertCellSize);
+
+			var horizCellCount = (int)math.ceil(screen.x / vertCellSize);
+			cellCount = new int2(horizCellCount, vertCellCount);
+			cellSize = new float2(vertCellSize);
+		}
     }
 }

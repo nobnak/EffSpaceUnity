@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using EffSpace.Extensions;
 using EffSpace.Models;
 using NUnit.Framework;
 using Unity.Mathematics;
@@ -17,12 +18,8 @@ public class BenchFPointGrid {
 
 		var screen = new float2(1920, 1080);
 		var hCellCount = 1 << BenchPointGrid.D;
-		var hCellSize = screen.y / hCellCount;
-		hCellSize = screen.y / math.floor(screen.y / hCellSize);
 
-		var wCellCount = (int)math.ceil(screen.x / hCellSize);
-		var cellCount = new int2(wCellCount, hCellCount);
-		var cellSize = new float2(hCellSize);
+		FPointGridExt.RecommendGrid(screen, hCellCount, out var cellCount, out var cellSize);
 		var fieldSize = cellSize * cellCount;
 
 		Debug.Log($"Screen: size={screen}\nCell: size={cellSize}, n={cellCount}\nField: {fieldSize}");
