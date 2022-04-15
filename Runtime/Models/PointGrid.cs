@@ -7,7 +7,7 @@ using Unity.Mathematics;
 
 namespace EffSpace.Models {
 
-    public struct PointGrid : IPointField<int2> {
+    public class PointGrid : IPointField<int2> {
 
         public readonly FreeList<Element> elements;
         public readonly FreeList<LinkedElementNode> leaves;
@@ -35,13 +35,21 @@ namespace EffSpace.Models {
             Clear();
         }
 
-        public int Insert(int id, int2 pos) {
+		#region interface
+
+		#region events
+		public event AddRemoveHandler OnAdd;
+		public event AddRemoveHandler OnRemove;
+		#endregion
+
+		public int Insert(int id, int2 pos) {
             var element = C.SENTRY;
             if (PointGridExt.TryGetCellIndex(cellCount, cellSize, pos, out var index)) {
                 element = elements.Insert(new Element() { id = id, pos = pos });
                 var cell = grid[index];
                 cell = leaves.Insert(new LinkedElementNode() { element = element, next = cell });
                 grid[index] = cell;
+				OnAdd?.Invoke(index, element);
             }
             return element;
         }
@@ -57,6 +65,7 @@ namespace EffSpace.Models {
                 if (leaf.element == element) {
                     cell = leaf.next;
                     leaves.Remove(curr);
+					OnRemove?.Invoke(index, element);
                 }
                 curr = leaf.next;
             }
@@ -77,12 +86,7 @@ namespace EffSpace.Models {
             elements.Remove(element);
         }
         public IEnumerable<int> Query(int2 aabb_min, int2 aabb_max) {
-#if false
-            var bmin = math.clamp(aabb_min / cellSize, 0, cellCount - 1);
-            var bmax = math.clamp(aabb_max / cellSize, 0, cellCount - 1);
-#else
             AABBExt.RangeFromAABB(cellCount, cellSize, aabb_min, aabb_max, out var bmin, out var bmax);
-#endif
             for (var iy = bmin.y; iy <= bmax.y; iy++) {
                 var yoffset = iy * cellCount.x;
                 for (var ix = bmin.x; ix <= bmax.x; ix++) {
@@ -103,5 +107,6 @@ namespace EffSpace.Models {
             for (var i = 0; i < totalCellCount; i++)
                 grid[i] = -1;
         }
-    }
+		#endregion
+	}
 }

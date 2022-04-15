@@ -26,7 +26,19 @@ namespace EffSpace.Models {
             this.grid = new PointGrid(cellCount, cellSize);
         }
 
-        public int Insert(int id, float2 pos) {
+		#region interface
+		#region events
+		public event AddRemoveHandler OnAdd {
+			add => grid.OnAdd += value;
+			remove => grid.OnAdd -= value;
+		}
+		public event AddRemoveHandler OnRemove {
+			add => grid.OnRemove += value;
+			remove => grid.OnRemove -= value;
+		}
+		#endregion
+
+		public int Insert(int id, float2 pos) {
             FPointGridExt.ToIntPos(pos, toIntScale, toIntOffset, out var ipos);
             return grid.Insert(id, ipos);
         }
@@ -40,5 +52,6 @@ namespace EffSpace.Models {
         public void Clear() {
             grid.Clear();
         }
-    }
+		#endregion
+	}
 }
