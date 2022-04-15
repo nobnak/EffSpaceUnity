@@ -65,7 +65,6 @@ namespace EffSpace.Models {
                 if (leaf.element == element) {
                     cell = leaf.next;
                     leaves.Remove(curr);
-					OnRemove?.Invoke(index, element);
                 }
                 curr = leaf.next;
             }
@@ -79,12 +78,13 @@ namespace EffSpace.Models {
                     leaf_prev.next = leaf.next;
                     leaves[prev] = leaf_prev;
                     leaves.Remove(curr);
-                }
+				}
                 prev = curr;
                 curr = leaf.next;
             }
             elements.Remove(element);
-        }
+			OnRemove?.Invoke(index, element);
+		}
         public IEnumerable<int> Query(int2 aabb_min, int2 aabb_max) {
             AABBExt.RangeFromAABB(cellCount, cellSize, aabb_min, aabb_max, out var bmin, out var bmax);
             for (var iy = bmin.y; iy <= bmax.y; iy++) {
