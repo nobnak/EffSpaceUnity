@@ -6,6 +6,36 @@
 [![Demo](http://img.youtube.com/vi/0fxcMapOaBQ/hqdefault.jpg)](https://www.youtube.com/shorts/0fxcMapOaBQ)
 [![Demo](http://img.youtube.com/vi/_xvoNZ3kExc/hqdefault.jpg)](https://www.youtube.com/shorts/_xvoNZ3kExc)
 
+## Usage
+
+```csharp
+using EffSpace.Extensions;
+using EffSpace.Models;
+using Unity.Mathematics;
+
+var n = 100000;
+var screen = new float2(1920, 1080);
+var hCellCount = 1 << 5;
+
+FPointGridExt.RecommendGrid(screen, hCellCount, out var cellCount, out var cellSize);
+var fieldSize = cellSize * cellCount
+
+var grid = new FPointGrid(cellCount, cellSize, float2.zero);
+var elements = new List<int>();
+var points = new List<float2>();
+
+var rand = Unity.Mathematics.Random.CreateFromIndex(31);
+for (var id = 0; id < n; id++) {
+    var position = new float2(rand.NextFloat2(screen));
+    var element_id = grid.Insert(id, position);
+    elements.Add(element_id);
+    points.Add(position);
+}
+
+foreach(var element_id in grid.Query(points[0] - cellSize, points[0] + cellSize))
+    ;
+```
+
 ## Data Structures
 - Uniform Grid : 
   - [PointGrid](Runtime/Models/PointGrid.cs) (int2) 
