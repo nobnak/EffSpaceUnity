@@ -1,0 +1,1685 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12004, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PixelRect:
+    serializedVersion: 2
+    x: 0
+    y: 43
+    width: 1920
+    height: 989
+  m_ShowMode: 4
+  m_Title: Test Runner
+  m_RootView: {fileID: 2}
+  m_MinSize: {x: 875, y: 300}
+  m_MaxSize: {x: 10000, y: 10000}
+  m_Maximized: 1
+--- !u!114 &2
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12008, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 3}
+  - {fileID: 4}
+  - {fileID: 5}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1920
+    height: 989
+  m_MinSize: {x: 875, y: 300}
+  m_MaxSize: {x: 10000, y: 10000}
+  m_UseTopView: 1
+  m_TopViewHeight: 30
+  m_UseBottomView: 1
+  m_BottomViewHeight: 20
+--- !u!114 &3
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12011, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1920
+    height: 30
+  m_MinSize: {x: 0, y: 0}
+  m_MaxSize: {x: 0, y: 0}
+  m_LastLoadedLayoutName: 
+--- !u!114 &4
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 6}
+  - {fileID: 7}
+  - {fileID: 8}
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 30
+    width: 1920
+    height: 939
+  m_MinSize: {x: 300, y: 200}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 0
+  controlID: 22
+--- !u!114 &5
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12042, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 969
+    width: 1920
+    height: 20
+  m_MinSize: {x: 0, y: 0}
+  m_MaxSize: {x: 0, y: 0}
+--- !u!114 &6
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: TestRunnerWindow
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1134
+    height: 939
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 13}
+  m_Panes:
+  - {fileID: 17}
+  - {fileID: 16}
+  - {fileID: 13}
+  - {fileID: 12}
+  - {fileID: 11}
+  m_Selected: 2
+  m_LastSelected: 1
+--- !u!114 &7
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12010, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children:
+  - {fileID: 9}
+  - {fileID: 10}
+  m_Position:
+    serializedVersion: 2
+    x: 1134
+    y: 0
+    width: 321
+    height: 939
+  m_MinSize: {x: 100, y: 200}
+  m_MaxSize: {x: 8096, y: 16192}
+  vertical: 1
+  controlID: 28
+--- !u!114 &8
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 1455
+    y: 0
+    width: 465
+    height: 939
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 14}
+  m_Panes:
+  - {fileID: 14}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &9
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 321
+    height: 413
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
+  m_ActualView: {fileID: 18}
+  m_Panes:
+  - {fileID: 18}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &10
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Children: []
+  m_Position:
+    serializedVersion: 2
+    x: 0
+    y: 413
+    width: 321
+    height: 526
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+  m_ActualView: {fileID: 15}
+  m_Panes:
+  - {fileID: 15}
+  m_Selected: 0
+  m_LastSelected: 0
+--- !u!114 &11
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffabd1fbe2ab3d59a50128c0669b5791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Burst Inspector
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 73
+    width: 1133
+    height: 918
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  _targetCpu: 0
+  _disasmKind: 0
+  _previousTargetIndex: -1
+  _safetyChecks: 0
+  _enhancedDisassembly: 1
+  _assemblyKind: -1
+  _searchFilter: 
+  _scrollPos: {x: 0, y: 0}
+  _selectedItem: 
+--- !u!114 &12
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4272062d6dbd273438736c85848ea974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 640, y: 480}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Test Report
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 73
+    width: 1133
+    height: 918
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_colorWhite: {r: 1, g: 1, b: 1, a: 1}
+  m_colorBarBackground: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_colorBoxAndWhiskerBackground: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+  m_colorBar: {r: 0.95, g: 0.95, b: 0.95, a: 1}
+  m_colorStandardLine: {r: 1, g: 1, b: 1, a: 1}
+  m_colorMedianLine: {r: 0.2, g: 0.5, b: 1, a: 0.5}
+  m_colorMedianText: {r: 0.4, g: 0.7, b: 1, a: 1}
+  m_colorWarningText: {r: 1, g: 0, b: 0, a: 1}
+  m_testListTreeViewState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 0
+      m_ClientGUIView: {fileID: 0}
+    m_SearchString: 
+  m_testListMulticolumnHeaderState:
+    m_Columns:
+    - width: 40
+      sortedAscending: 1
+      headerContent:
+        m_Text: Index
+        m_Image: {fileID: 0}
+        m_Tooltip: Ordering from the test run
+      contextMenuText: 
+      headerTextAlignment: 0
+      sortingArrowAlignment: 0
+      minWidth: 50
+      maxWidth: 1000000
+      autoResize: 1
+      allowToggleVisibility: 1
+      canSort: 1
+      userData: 0
+    - width: 500
+      sortedAscending: 1
+      headerContent:
+        m_Text: Name
+        m_Image: {fileID: 0}
+        m_Tooltip: Name of test
+      contextMenuText: 
+      headerTextAlignment: 0
+      sortingArrowAlignment: 0
+      minWidth: 100
+      maxWidth: 1000000
+      autoResize: 0
+      allowToggleVisibility: 0
+      canSort: 1
+      userData: 0
+    - width: 60
+      sortedAscending: 0
+      headerContent:
+        m_Text: Groups
+        m_Image: {fileID: 0}
+        m_Tooltip: Number of Sample Groups
+      contextMenuText: 
+      headerTextAlignment: 0
+      sortingArrowAlignment: 0
+      minWidth: 50
+      maxWidth: 1000000
+      autoResize: 1
+      allowToggleVisibility: 1
+      canSort: 1
+      userData: 0
+    - width: 100
+      sortedAscending: 0
+      headerContent:
+        m_Text: SD
+        m_Image: {fileID: 0}
+        m_Tooltip: Standard Deviation
+      contextMenuText: 
+      headerTextAlignment: 0
+      sortingArrowAlignment: 0
+      minWidth: 50
+      maxWidth: 1000000
+      autoResize: 1
+      allowToggleVisibility: 1
+      canSort: 1
+      userData: 0
+    - width: 100
+      sortedAscending: 0
+      headerContent:
+        m_Text: Deviation
+        m_Image: {fileID: 0}
+        m_Tooltip: Standard Deviation / Median
+      contextMenuText: 
+      headerTextAlignment: 0
+      sortingArrowAlignment: 0
+      minWidth: 50
+      maxWidth: 1000000
+      autoResize: 1
+      allowToggleVisibility: 1
+      canSort: 1
+      userData: 0
+    - width: 100
+      sortedAscending: 0
+      headerContent:
+        m_Text: Median
+        m_Image: {fileID: 0}
+        m_Tooltip: Median value
+      contextMenuText: 
+      headerTextAlignment: 0
+      sortingArrowAlignment: 0
+      minWidth: 50
+      maxWidth: 1000000
+      autoResize: 1
+      allowToggleVisibility: 1
+      canSort: 1
+      userData: 0
+    - width: 100
+      sortedAscending: 0
+      headerContent:
+        m_Text: Min
+        m_Image: {fileID: 0}
+        m_Tooltip: Min value
+      contextMenuText: 
+      headerTextAlignment: 0
+      sortingArrowAlignment: 0
+      minWidth: 50
+      maxWidth: 1000000
+      autoResize: 1
+      allowToggleVisibility: 1
+      canSort: 1
+      userData: 0
+    - width: 100
+      sortedAscending: 0
+      headerContent:
+        m_Text: Max
+        m_Image: {fileID: 0}
+        m_Tooltip: Max value
+      contextMenuText: 
+      headerTextAlignment: 0
+      sortingArrowAlignment: 0
+      minWidth: 50
+      maxWidth: 1000000
+      autoResize: 1
+      allowToggleVisibility: 1
+      canSort: 1
+      userData: 0
+    m_VisibleColumns: 0000000001000000020000000400000003000000050000000600000007000000
+    m_SortedColumns: 00000000
+--- !u!114 &13
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13401, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Test Runner
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 73
+    width: 1133
+    height: 918
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_Spl:
+    ID: 161
+    splitterInitialOffset: 0
+    currentActiveSplitter: -1
+    realSizes:
+    - 636
+    - 212
+    relativeSizes:
+    - 0.75
+    - 0.25
+    minSizes:
+    - 32
+    - 32
+    maxSizes:
+    - 0
+    - 0
+    lastTotalSize: 848
+    splitSize: 6
+    xOffset: 0
+    m_Version: 1
+    oldRealSizes: 
+    oldMinSizes: 
+    oldMaxSizes: 
+    oldSplitSize: 0
+  m_TestTypeToolbarIndex: 1
+  m_PlayModeTestListGUI:
+    m_Window: {fileID: 0}
+    m_NewResultList: []
+    m_ResultText: 
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories: []
+    m_SelectedOption: 0
+  m_EditModeTestListGUI:
+    m_Window: {fileID: 13}
+    m_NewResultList:
+    - id: 1000
+      uniqueId: '[Test-EfficientSpacialDataStructureUnity][suite]'
+      name: Test-EfficientSpacialDataStructureUnity
+      fullName: Test-EfficientSpacialDataStructureUnity
+      resultStatus: 1
+      duration: 16.471174
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 
+      parentUniqueId: 
+    - id: 1011
+      uniqueId: '[EffSpace.Tests][C:/Users/nakata/Documents/Repo/Test-EfficientSpacialDataStructureUnity/Library/ScriptAssemblies/EffSpace.Tests.dll][suite]'
+      name: EffSpace.Tests.dll
+      fullName: C:/Users/nakata/Documents/Repo/Test-EfficientSpacialDataStructureUnity/Library/ScriptAssemblies/EffSpace.Tests.dll
+      resultStatus: 1
+      duration: 16.42313
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[Test-EfficientSpacialDataStructureUnity][suite]'
+    - id: 1001
+      uniqueId: EffSpace.Tests.dll/[EffSpace.Tests][BenchFPointGrid][suite]
+      name: BenchFPointGrid
+      fullName: BenchFPointGrid
+      resultStatus: 1
+      duration: 7.658916
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1011
+      parentUniqueId: '[EffSpace.Tests][C:/Users/nakata/Documents/Repo/Test-EfficientSpacialDataStructureUnity/Library/ScriptAssemblies/EffSpace.Tests.dll][suite]'
+    - id: 1002
+      uniqueId: EffSpace.Tests.dll/BenchFPointGrid/[EffSpace.Tests][BenchFPointGrid.Query]
+      name: Query
+      fullName: BenchFPointGrid.Query
+      resultStatus: 1
+      duration: 7.6579447
+      messages: 
+      output: 'Screen: size=float2(1920f, 1080f)
+
+        Cell: size=float2(1.054688f,
+        1.054688f), n=int2(1821, 1024)
+
+        Field: float2(1920.586f, 1080f)
+
+        Query:
+        100 points in grid Millisecond Median:5.68 Min:4.84 Max:7.59 Avg:5.70 Std:0.78
+        SampleCount: 9 Sum: 51.31
+
+        Query: 1000 points in grid Millisecond
+        Median:5.62 Min:5.01 Max:6.98 Avg:5.75 Std:0.51 SampleCount: 9 Sum: 51.77
+
+        Query:
+        10000 points in grid Millisecond Median:5.76 Min:4.80 Max:7.43 Avg:5.82 Std:0.67
+        SampleCount: 9 Sum: 52.41
+
+        Query: 100000 points in grid Millisecond
+        Median:8.13 Min:7.16 Max:10.76 Avg:8.26 Std:1.05 SampleCount: 9 Sum: 74.32
+
+        Query:
+        1000000 points in grid Millisecond Median:14.32 Min:13.65 Max:15.64 Avg:14.33
+        Std:0.63 SampleCount: 9 Sum: 128.96
+
+        
+
+        ##performancetestresult2:{"Name":"BenchFPointGrid.Query","Version":"1","Categories":["Performance"],"SampleGroups":[{"Name":"Query:
+        100 points in grid","Unit":2,"IncreaseIsBetter":false,"Samples":[6.12036,5.759093333333332,5.106813333333336,4.87516666666667,5.675406666666671,4.83884666666667,7.585359999999999,5.7978199999999939,5.547446666666663],"Min":4.83884666666667,"Max":7.585359999999999,"Median":5.675406666666671,"Average":5.700701481481483,"StandardDeviation":0.7847167974154442,"Sum":51.30631333333334},{"Name":"Query:
+        1000 points in grid","Unit":2,"IncreaseIsBetter":false,"Samples":[5.6202749999999999,5.762858333333331,5.903158333333337,5.482316666666667,5.451058333333336,5.01474166666667,5.959441666666663,6.97541666666667,5.603916666666663],"Min":5.01474166666667,"Max":6.97541666666667,"Median":5.6202749999999999,"Average":5.752575925925926,"StandardDeviation":0.5064987804734149,"Sum":51.773183333333339},{"Name":"Query:
+        10000 points in grid","Unit":2,"IncreaseIsBetter":false,"Samples":[5.8981000000000078,7.425546666666666,5.701819999999998,5.764606666666668,5.345740000000001,5.46134666666666,5.944513333333331,4.803720000000006,6.066266666666661],"Min":4.803720000000006,"Max":7.425546666666666,"Median":5.764606666666668,"Average":5.823517777777778,"StandardDeviation":0.6719237647380478,"Sum":52.411660000000008},{"Name":"Query:
+        100000 points in grid","Unit":2,"IncreaseIsBetter":false,"Samples":[8.654066666666667,8.855116666666666,8.125625,7.6749166666666659,8.331425000000005,7.505716666666662,7.252183333333335,10.763350000000003,7.157816666666672],"Min":7.157816666666672,"Max":10.763350000000003,"Median":8.125625,"Average":8.257801851851854,"StandardDeviation":1.0509834907019487,"Sum":74.32021666666668},{"Name":"Query:
+        1000000 points in grid","Unit":2,"IncreaseIsBetter":false,"Samples":[14.318233333333334,13.7112,13.705316666666667,14.438033333333332,15.64128333333334,15.046633333333338,14.32546666666667,13.650216666666666,14.128033333333349],"Min":13.650216666666666,"Max":15.64128333333334,"Median":14.318233333333334,"Average":14.329379629629634,"StandardDeviation":0.6254680628955677,"Sum":128.9644166666667}]}
+
+        ##performancetestruninfo2:{"TestSuite":"Editmode","Date":1650004141952,"Player":{"Development":true,"ScreenWidth":1920,"ScreenHeight":1080,"ScreenRefreshRate":60,"Fullscreen":false,"Vsync":1,"AntiAliasing":2,"Batchmode":false,"RenderThreadingMode":"GraphicsJobs","GpuSkinning":true,"Platform":"WindowsEditor","ColorSpace":"Linear","AnisotropicFiltering":"ForceEnable","BlendWeights":"FourBones","GraphicsApi":"Direct3D11","ScriptingBackend":"IL2CPP","AndroidTargetSdkVersion":"AndroidApiLevelAuto","AndroidBuildSystem":"Gradle","BuildTarget":"StandaloneWindows64","StereoRenderingPath":"MultiPass"},"Hardware":{"OperatingSystem":"Windows
+        11  (10.0.22000) 64bit","DeviceModel":"Blade Stealth 13 (Late 2020) - RZ09-0327
+        (Razer)","DeviceName":"LAB-N2035","ProcessorType":"11th Gen Intel(R) Core(TM)
+        i7-1165G7 @ 2.80GHz","ProcessorCount":8,"GraphicsDeviceName":"NVIDIA GeForce
+        GTX 1080","SystemMemorySizeMB":16147},"Editor":{"Version":"2021.3.0f1","Branch":"2021.3/staging","Changeset":"6eacc8284459","Date":1648789809},"Dependencies":["com.unity.burst@1.6.5","com.unity.collab-proxy@1.15.15","com.unity.ide.rider@3.0.13","com.unity.ide.visualstudio@2.0.14","com.unity.ide.vscode@1.2.5","com.unity.mathematics@1.2.6","com.unity.test-framework@1.1.31","com.unity.test-framework.performance@2.8.0-preview","com.unity.textmeshpro@3.0.6","com.unity.timeline@1.6.4","com.unity.ugui@1.0.0","com.unity.modules.ai@1.0.0","com.unity.modules.androidjni@1.0.0","com.unity.modules.animation@1.0.0","com.unity.modules.assetbundle@1.0.0","com.unity.modules.audio@1.0.0","com.unity.modules.cloth@1.0.0","com.unity.modules.director@1.0.0","com.unity.modules.imageconversion@1.0.0","com.unity.modules.imgui@1.0.0","com.unity.modules.jsonserialize@1.0.0","com.unity.modules.particlesystem@1.0.0","com.unity.modules.physics@1.0.0","com.unity.modules.physics2d@1.0.0","com.unity.modules.screencapture@1.0.0","com.unity.modules.terrain@1.0.0","com.unity.modules.terrainphysics@1.0.0","com.unity.modules.tilemap@1.0.0","com.unity.modules.ui@1.0.0","com.unity.modules.uielements@1.0.0","com.unity.modules.umbra@1.0.0","com.unity.modules.unityanalytics@1.0.0","com.unity.modules.unitywebrequest@1.0.0","com.unity.modules.unitywebrequestassetbundle@1.0.0","com.unity.modules.unitywebrequestaudio@1.0.0","com.unity.modules.unitywebrequesttexture@1.0.0","com.unity.modules.unitywebrequestwww@1.0.0","com.unity.modules.vehicles@1.0.0","com.unity.modules.video@1.0.0","com.unity.modules.vr@1.0.0","com.unity.modules.wind@1.0.0","com.unity.modules.xr@1.0.0","com.unity.modules.subsystems@1.0.0","com.unity.modules.uielementsnative@1.0.0","com.unity.ext.nunit@1.0.6","com.unity.services.core@1.0.1"],"Results":[]}
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Performance
+      parentId: 1001
+      parentUniqueId: EffSpace.Tests.dll/[EffSpace.Tests][BenchFPointGrid][suite]
+    - id: 1003
+      uniqueId: EffSpace.Tests.dll/[EffSpace.Tests][BenchPointGrid][suite]
+      name: BenchPointGrid
+      fullName: BenchPointGrid
+      resultStatus: 1
+      duration: 8.685026
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1011
+      parentUniqueId: '[EffSpace.Tests][C:/Users/nakata/Documents/Repo/Test-EfficientSpacialDataStructureUnity/Library/ScriptAssemblies/EffSpace.Tests.dll][suite]'
+    - id: 1005
+      uniqueId: EffSpace.Tests.dll/BenchPointGrid/[EffSpace.Tests][BenchPointGrid.BenchmarkAddRemove]
+      name: BenchmarkAddRemove
+      fullName: BenchPointGrid.BenchmarkAddRemove
+      resultStatus: 1
+      duration: 0.9826867
+      messages: 
+      output: 'Time Millisecond Median:67.11 Min:56.87 Max:73.07 Avg:66.07 Std:5.26
+        SampleCount: 9 Sum: 594.66
+
+        Add element 25.55 Millisecond
+
+        Remove
+        element 25.32 Millisecond
+
+        
+
+        ##performancetestresult2:{"Name":"BenchPointGrid.BenchmarkAddRemove","Version":"1","Categories":["Performance"],"SampleGroups":[{"Name":"Time","Unit":2,"IncreaseIsBetter":false,"Samples":[68.21360000000004,63.45100000000002,72.32169999999997,56.87170000000003,73.0684,61.961599999999979,67.10950000000003,60.994800000000058,70.66279999999995],"Min":56.87170000000003,"Max":73.0684,"Median":67.10950000000003,"Average":66.0727888888889,"StandardDeviation":5.259226474480476,"Sum":594.6551000000001},{"Name":"Add
+        element","Unit":2,"IncreaseIsBetter":false,"Samples":[25.546411111111114],"Min":25.546411111111114,"Max":25.546411111111114,"Median":25.546411111111114,"Average":25.546411111111114,"StandardDeviation":0.0,"Sum":25.546411111111114},{"Name":"Remove
+        element","Unit":2,"IncreaseIsBetter":false,"Samples":[25.319266666666669],"Min":25.319266666666669,"Max":25.319266666666669,"Median":25.319266666666669,"Average":25.319266666666669,"StandardDeviation":0.0,"Sum":25.319266666666669}]}
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Performance
+      parentId: 1003
+      parentUniqueId: EffSpace.Tests.dll/[EffSpace.Tests][BenchPointGrid][suite]
+    - id: 1004
+      uniqueId: EffSpace.Tests.dll/BenchPointGrid/[EffSpace.Tests][BenchPointGrid.BenchmarkQuery]
+      name: BenchmarkQuery
+      fullName: BenchPointGrid.BenchmarkQuery
+      resultStatus: 1
+      duration: 7.6928453
+      messages: 
+      output: 'Query: 100 points in grid Millisecond Median:4.22 Min:3.57 Max:5.10
+        Avg:4.20 Std:0.48 SampleCount: 9 Sum: 37.81
+
+        Query: 1000 points in
+        grid Millisecond Median:3.88 Min:3.61 Max:4.66 Avg:4.01 Std:0.31 SampleCount:
+        9 Sum: 36.10
+
+        Query: 10000 points in grid Millisecond Median:4.79
+        Min:4.36 Max:6.25 Avg:4.99 Std:0.64 SampleCount: 9 Sum: 44.87
+
+        Query:
+        100000 points in grid Millisecond Median:15.88 Min:7.38 Max:18.64 Avg:13.94
+        Std:3.79 SampleCount: 9 Sum: 125.44
+
+        Query: 1000000 points in grid
+        Millisecond Median:22.82 Min:20.77 Max:26.99 Avg:23.11 Std:2.01 SampleCount:
+        9 Sum: 207.95
+
+        
+
+        ##performancetestresult2:{"Name":"BenchPointGrid.BenchmarkQuery","Version":"1","Categories":["Performance"],"SampleGroups":[{"Name":"Query:
+        100 points in grid","Unit":2,"IncreaseIsBetter":false,"Samples":[4.547711538461538,3.6248384615384605,3.990892307692307,3.8378769230769196,5.09917307692308,4.267957692307693,4.224415384615384,3.5702846153846115,4.6433730769230829],"Min":3.5702846153846115,"Max":5.09917307692308,"Median":4.224415384615384,"Average":4.200724786324786,"StandardDeviation":0.4753263514523288,"Sum":37.80652307692307},{"Name":"Query:
+        1000 points in grid","Unit":2,"IncreaseIsBetter":false,"Samples":[3.6133956521739147,3.8623391304347849,3.8967956521739137,3.8755043478260888,4.348569565217392,3.801378260869569,4.233065217391305,3.811091304347829,4.659682608695656],"Min":3.6133956521739147,"Max":4.659682608695656,"Median":3.8755043478260888,"Average":4.011313526570051,"StandardDeviation":0.31261445028697418,"Sum":36.10182173913046},{"Name":"Query:
+        10000 points in grid","Unit":2,"IncreaseIsBetter":false,"Samples":[5.95673684210526,4.81964210526316,4.694957894736842,4.79021052631579,5.060715789473683,4.396052631578952,6.2507947368420979,4.540131578947371,4.361652631578947],"Min":4.361652631578947,"Max":6.2507947368420979,"Median":4.79021052631579,"Average":4.985654970760233,"StandardDeviation":0.6355205458511118,"Sum":44.870894736842107},{"Name":"Query:
+        100000 points in grid","Unit":2,"IncreaseIsBetter":false,"Samples":[7.376620000000001,7.540800000000002,18.640653333333334,15.878706666666668,15.955960000000005,16.330153333333329,16.892153333333334,12.872860000000007,13.951726666666673],"Min":7.376620000000001,"Max":18.640653333333334,"Median":15.878706666666668,"Average":13.937737037037039,"StandardDeviation":3.7934660075100745,"Sum":125.43963333333335},{"Name":"Query:
+        1000000 points in grid","Unit":2,"IncreaseIsBetter":false,"Samples":[26.990100000000024,23.004866666666659,24.046600000000013,20.77023333333337,25.7491,21.049966666666668,21.704733333333328,22.821533333333304,21.8123333333333],"Min":20.77023333333337,"Max":26.990100000000024,"Median":22.821533333333304,"Average":23.105496296296296,"StandardDeviation":2.0102041476356287,"Sum":207.94946666666668}]}
+
+'
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Performance
+      parentId: 1003
+      parentUniqueId: EffSpace.Tests.dll/[EffSpace.Tests][BenchPointGrid][suite]
+    - id: 1006
+      uniqueId: EffSpace.Tests.dll/[EffSpace.Tests][TestFPointGrid][suite]
+      name: TestFPointGrid
+      fullName: TestFPointGrid
+      resultStatus: 1
+      duration: 0.0231018
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1011
+      parentUniqueId: '[EffSpace.Tests][C:/Users/nakata/Documents/Repo/Test-EfficientSpacialDataStructureUnity/Library/ScriptAssemblies/EffSpace.Tests.dll][suite]'
+    - id: 1007
+      uniqueId: EffSpace.Tests.dll/TestFPointGrid/[EffSpace.Tests][TestFPointGrid.TestFPointGridSimplePasses]
+      name: TestFPointGridSimplePasses
+      fullName: TestFPointGrid.TestFPointGridSimplePasses
+      resultStatus: 1
+      duration: 0.0114186
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1006
+      parentUniqueId: EffSpace.Tests.dll/[EffSpace.Tests][TestFPointGrid][suite]
+    - id: 1008
+      uniqueId: EffSpace.Tests.dll/[EffSpace.Tests][TestPointGrid][suite]
+      name: TestPointGrid
+      fullName: TestPointGrid
+      resultStatus: 1
+      duration: 0.0544962
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1011
+      parentUniqueId: '[EffSpace.Tests][C:/Users/nakata/Documents/Repo/Test-EfficientSpacialDataStructureUnity/Library/ScriptAssemblies/EffSpace.Tests.dll][suite]'
+    - id: 1009
+      uniqueId: EffSpace.Tests.dll/TestPointGrid/[EffSpace.Tests][TestPointGrid.TestPointGridSimplePasses]
+      name: TestPointGridSimplePasses
+      fullName: TestPointGrid.TestPointGridSimplePasses
+      resultStatus: 1
+      duration: 0.0023383
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1008
+      parentUniqueId: EffSpace.Tests.dll/[EffSpace.Tests][TestPointGrid][suite]
+    - id: 1010
+      uniqueId: EffSpace.Tests.dll/TestPointGrid/[EffSpace.Tests][TestPointGrid.TestRandom]
+      name: TestRandom
+      fullName: TestPointGrid.TestRandom
+      resultStatus: 1
+      duration: 0.0460488
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1008
+      parentUniqueId: EffSpace.Tests.dll/[EffSpace.Tests][TestPointGrid][suite]
+    - id: 1014
+      uniqueId: '[Gist2.Tests][C:/Users/nakata/Documents/Repo/Test-EfficientSpacialDataStructureUnity/Library/ScriptAssemblies/Gist2.Tests.dll][suite]'
+      name: Gist2.Tests.dll
+      fullName: C:/Users/nakata/Documents/Repo/Test-EfficientSpacialDataStructureUnity/Library/ScriptAssemblies/Gist2.Tests.dll
+      resultStatus: 1
+      duration: 0.0096856
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[Test-EfficientSpacialDataStructureUnity][suite]'
+    - id: 1012
+      uniqueId: Gist2.Tests.dll/[Gist2.Tests][Test_Extension_Math][suite]
+      name: Test_Extension_Math
+      fullName: Test_Extension_Math
+      resultStatus: 1
+      duration: 0.0048538
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1014
+      parentUniqueId: '[Gist2.Tests][C:/Users/nakata/Documents/Repo/Test-EfficientSpacialDataStructureUnity/Library/ScriptAssemblies/Gist2.Tests.dll][suite]'
+    - id: 1013
+      uniqueId: Gist2.Tests.dll/Test_Extension_Math/[Gist2.Tests][Test_Extension_Math.Quantize]
+      name: Quantize
+      fullName: Test_Extension_Math.Quantize
+      resultStatus: 1
+      duration: 0.0033087
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1012
+      parentUniqueId: Gist2.Tests.dll/[Gist2.Tests][Test_Extension_Math][suite]
+    - id: 1017
+      uniqueId: '[TestLLGraphics.dll][suite]'
+      name: TestLLGraphics.dll
+      fullName: C:/Users/nakata/Documents/Repo/Test-EfficientSpacialDataStructureUnity/Library/ScriptAssemblies/TestLLGraphics.dll
+      resultStatus: 1
+      duration: 0.0155053
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1000
+      parentUniqueId: '[Test-EfficientSpacialDataStructureUnity][suite]'
+    - id: 1018
+      uniqueId: TestLLGraphics.dll/[LLGraphicsUnity][suite]
+      name: LLGraphicsUnity
+      fullName: LLGraphicsUnity
+      resultStatus: 1
+      duration: 0.0106338
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1017
+      parentUniqueId: '[TestLLGraphics.dll][suite]'
+    - id: 1019
+      uniqueId: TestLLGraphics.dll/LLGraphicsUnity/[TestLLGraphics][LLGraphicsUnity.Tests][suite]
+      name: Tests
+      fullName: LLGraphicsUnity.Tests
+      resultStatus: 1
+      duration: 0.0101284
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1018
+      parentUniqueId: TestLLGraphics.dll/[LLGraphicsUnity][suite]
+    - id: 1015
+      uniqueId: TestLLGraphics.dll/LLGraphicsUnity/Tests/[TestLLGraphics][LLGraphicsUnity.Tests.TestTextureColored][suite]
+      name: TestTextureColored
+      fullName: LLGraphicsUnity.Tests.TestTextureColored
+      resultStatus: 1
+      duration: 0.0065495
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1019
+      parentUniqueId: TestLLGraphics.dll/LLGraphicsUnity/[TestLLGraphics][LLGraphicsUnity.Tests][suite]
+    - id: 1016
+      uniqueId: TestLLGraphics.dll/LLGraphicsUnity/Tests/TestTextureColored/[TestLLGraphics][LLGraphicsUnity.Tests.TestTextureColored.TestTextureColoredSimplePasses]
+      name: TestTextureColoredSimplePasses
+      fullName: LLGraphicsUnity.Tests.TestTextureColored.TestTextureColoredSimplePasses
+      resultStatus: 1
+      duration: 0.0030055
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1015
+      parentUniqueId: TestLLGraphics.dll/LLGraphicsUnity/Tests/[TestLLGraphics][LLGraphicsUnity.Tests.TestTextureColored][suite]
+    m_ResultText: 'Query (7.658s)
+
+      ---
+
+      Screen: size=float2(1920f, 1080f)
+
+      Cell:
+      size=float2(1.054688f, 1.054688f), n=int2(1821, 1024)
+
+      Field: float2(1920.586f,
+      1080f)
+
+      Query: 100 points in grid Millisecond Median:5.68 Min:4.84 Max:7.59
+      Avg:5.70 Std:0.78 SampleCount: 9 Sum: 51.31
+
+      Query: 1000 points in grid
+      Millisecond Median:5.62 Min:5.01 Max:6.98 Avg:5.75 Std:0.51 SampleCount: 9
+      Sum: 51.77
+
+      Query: 10000 points in grid Millisecond Median:5.76 Min:4.80
+      Max:7.43 Avg:5.82 Std:0.67 SampleCount: 9 Sum: 52.41
+
+      Query: 100000 points
+      in grid Millisecond Median:8.13 Min:7.16 Max:10.76 Avg:8.26 Std:1.05 SampleCount:
+      9 Sum: 74.32
+
+      Query: 1000000 points in grid Millisecond Median:14.32
+      Min:13.65 Max:15.64 Avg:14.33 Std:0.63 SampleCount: 9 Sum: 128.96
+
+      
+
+      ##performancetestresult2:{"Name":"BenchFPointGrid.Query","Version":"1","Categories":["Performance"],"SampleGroups":[{"Name":"Query:
+      100 points in grid","Unit":2,"IncreaseIsBetter":false,"Samples":[6.12036,5.759093333333332,5.106813333333336,4.87516666666667,5.675406666666671,4.83884666666667,7.585359999999999,5.7978199999999939,5.547446666666663],"Min":4.83884666666667,"Max":7.585359999999999,"Median":5.675406666666671,"Average":5.700701481481483,"StandardDeviation":0.7847167974154442,"Sum":51.30631333333334},{"Name":"Query:
+      1000 points in grid","Unit":2,"IncreaseIsBetter":false,"Samples":[5.6202749999999999,5.762858333333331,5.903158333333337,5.482316666666667,5.451058333333336,5.01474166666667,5.959441666666663,6.97541666666667,5.603916666666663],"Min":5.01474166666667,"Max":6.97541666666667,"Median":5.6202749999999999,"Average":5.752575925925926,"StandardDeviation":0.5064987804734149,"Sum":51.773183333333339},{"Name":"Query:
+      10000 points in grid","Unit":2,"IncreaseIsBetter":false,"Samples":[5.8981000000000078,7.425546666666666,5.701819999999998,5.764606666666668,5.345740000000001,5.46134666666666,5.944513333333331,4.803720000000006,6.066266666666661],"Min":4.803720000000006,"Max":7.425546666666666,"Median":5.764606666666668,"Average":5.823517777777778,"StandardDeviation":0.6719237647380478,"Sum":52.411660000000008},{"Name":"Query:
+      100000 points in grid","Unit":2,"IncreaseIsBetter":false,"Samples":[8.654066666666667,8.855116666666666,8.125625,7.6749166666666659,8.331425000000005,7.505716666666662,7.252183333333335,10.763350000000003,7.157816666666672],"Min":7.157816666666672,"Max":10.763350000000003,"Median":8.125625,"Average":8.257801851851854,"StandardDeviation":1.0509834907019487,"Sum":74.32021666666668},{"Name":"Query:
+      1000000 points in grid","Unit":2,"IncreaseIsBetter":false,"Samples":[14.318233333333334,13.7112,13.705316666666667,14.438033333333332,15.64128333333334,15.046633333333338,14.32546666666667,13.650216666666666,14.128033333333349],"Min":13.650216666666666,"Max":15.64128333333334,"Median":14.318233333333334,"Average":14.329379629629634,"StandardDeviation":0.6254680628955677,"Sum":128.9644166666667}]}
+
+      ##performancetestruninfo2:{"TestSuite":"Editmode","Date":1650004141952,"Player":{"Development":true,"ScreenWidth":1920,"ScreenHeight":1080,"ScreenRefreshRate":60,"Fullscreen":false,"Vsync":1,"AntiAliasing":2,"Batchmode":false,"RenderThreadingMode":"GraphicsJobs","GpuSkinning":true,"Platform":"WindowsEditor","ColorSpace":"Linear","AnisotropicFiltering":"ForceEnable","BlendWeights":"FourBones","GraphicsApi":"Direct3D11","ScriptingBackend":"IL2CPP","AndroidTargetSdkVersion":"AndroidApiLevelAuto","AndroidBuildSystem":"Gradle","BuildTarget":"StandaloneWindows64","StereoRenderingPath":"MultiPass"},"Hardware":{"OperatingSystem":"Windows
+      11  (10.0.22000) 64bit","DeviceModel":"Blade Stealth 13 (Late 2020) - RZ09-0327
+      (Razer)","DeviceName":"LAB-N2035","ProcessorType":"11th Gen Intel(R) Core(TM)
+      i7-1165G7 @ 2.80GHz","ProcessorCount":8,"GraphicsDeviceName":"NVIDIA GeForce
+      GTX 1080","SystemMemorySizeMB":16147},"Editor":{"Version":"2021.3.0f1","Branch":"2021.3/staging","Changeset":"6eacc8284459","Date":1648789809},"Dependencies":["com.unity.burst@1.6.5","com.unity.collab-proxy@1.15.15","com.unity.ide.rider@3.0.13","com.unity.ide.visualstudio@2.0.14","com.unity.ide.vscode@1.2.5","com.unity.mathematics@1.2.6","com.unity.test-framework@1.1.31","com.unity.test-framework.performance@2.8.0-preview","com.unity.textmeshpro@3.0.6","com.unity.timeline@1.6.4","com.unity.ugui@1.0.0","com.unity.modules.ai@1.0.0","com.unity.modules.androidjni@1.0.0","com.unity.modules.animation@1.0.0","com.unity.modules.assetbundle@1.0.0","com.unity.modules.audio@1.0.0","com.unity.modules.cloth@1.0.0","com.unity.modules.director@1.0.0","com.unity.modules.imageconversion@1.0.0","com.unity.modules.imgui@1.0.0","com.unity.modules.jsonserialize@1.0.0","com.unity.modules.particlesystem@1.0.0","com.unity.modules.physics@1.0.0","com.unity.modules.physics2d@1.0.0","com.unity.modules.screencapture@1.0.0","com.unity.modules.terrain@1.0.0","com.unity.modules.terrainphysics@1.0.0","com.unity.modules.tilemap@1.0.0","com.unity.modules.ui@1.0.0","com.unity.modules.uielements@1.0.0","com.unity.modules.umbra@1.0.0","com.unity.modules.unityanalytics@1.0.0","com.unity.modules.unitywebrequest@1.0.0","com.unity.modules.unitywebrequestassetbundle@1.0.0","com.unity.modules.unitywebrequestaudio@1.0.0","com.unity.modules.unitywebrequesttexture@1.0.0","com.unity.modules.unitywebrequestwww@1.0.0","com.unity.modules.vehicles@1.0.0","com.unity.modules.video@1.0.0","com.unity.modules.vr@1.0.0","com.unity.modules.wind@1.0.0","com.unity.modules.xr@1.0.0","com.unity.modules.subsystems@1.0.0","com.unity.modules.uielementsnative@1.0.0","com.unity.ext.nunit@1.0.6","com.unity.services.core@1.0.1"],"Results":[]}'
+    m_ResultStacktrace: 
+    m_TestListState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 54f621ec
+      m_LastClickedID: -333318572
+      m_ExpandedIDs: a3e2c8866f96f188689e2194e52c7cb47fae2eb8ad700fbee849dcd3dc3e3fd424664a24390e1b3323065a3d4c279878ffffff7f
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_TestRunnerUIFilter:
+      PassedHidden: 0
+      FailedHidden: 0
+      NotRunHidden: 0
+      m_SearchString: 
+      selectedCategoryMask: 0
+      availableCategories:
+      - Performance
+      - Uncategorized
+--- !u!114 &14
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12019, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Inspector
+    m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1455
+    y: 73
+    width: 464
+    height: 918
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_ObjectsLockedBeforeSerialization: []
+  m_InstanceIDsLockedBeforeSerialization: 
+  m_PreviewResizer:
+    m_CachedPref: -160
+    m_ControlHash: -371814159
+    m_PrefName: Preview_InspectorPreview
+  m_LastInspectedObjectInstanceID: -1
+  m_LastVerticalScrollValue: 0
+  m_GlobalObjectId: 
+  m_InspectorMode: 0
+  m_LockTracker:
+    m_IsLocked: 0
+  m_PreviewWindow: {fileID: 0}
+--- !u!114 &15
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12014, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
+  m_TitleContent:
+    m_Text: Project
+    m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1134
+    y: 486
+    width: 319
+    height: 505
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_SearchFilter:
+    m_NameFilter: 
+    m_ClassNames: []
+    m_AssetLabels: []
+    m_AssetBundleNames: []
+    m_VersionControlStates: []
+    m_SoftLockControlStates: []
+    m_ReferencingInstanceIDs: 
+    m_SceneHandles: 
+    m_ShowAllHits: 0
+    m_SkipHidden: 0
+    m_SearchArea: 1
+    m_Folders:
+    - Assets/Tests
+    m_Globs: []
+    m_OriginalText: 
+  m_ViewMode: 0
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets
+  m_LastFoldersGridSize: -1
+  m_LastProjectPath: C:\Users\nakata\Documents\Repo\Test-EfficientSpacialDataStructureUnity
+  m_LockTracker:
+    m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: d2690000
+    m_LastClickedID: 27090
+    m_ExpandedIDs: 00000000564e0000584e00005a4e00005c4e00005e4e0000604e0000624e0000644e0000664e0000684e00006a4e00006c4e00006e4e0000704e0000
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 0}
+    m_SearchString: 
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+  m_AssetTreeState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: ffffffff00000000564e00005a4e00005c4e00005e4e0000624e0000644e0000664e0000684e00006a4e00006c4e00006e4e0000704e0000a64e0000
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 0}
+    m_SearchString: 
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+  m_ListAreaState:
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: c6230000
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 0}
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+    m_NewAssetIndexInList: -1
+    m_ScrollPosition: {x: 0, y: 0}
+    m_GridSize: 64
+  m_SkipHiddenPackages: 0
+  m_DirectoriesAreaWidth: 115
+--- !u!114 &16
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Game
+    m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 73
+    width: 1133
+    height: 918
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_SerializedViewNames: []
+  m_SerializedViewValues: []
+  m_PlayModeViewName: GameView
+  m_ShowGizmos: 0
+  m_TargetDisplay: 0
+  m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
+  m_TargetSize: {x: 1133, y: 897}
+  m_TextureFilterMode: 0
+  m_TextureHideFlags: 61
+  m_RenderIMGUI: 1
+  m_EnterPlayModeBehavior: 0
+  m_UseMipMap: 0
+  m_VSyncEnabled: 0
+  m_Gizmos: 0
+  m_Stats: 0
+  m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_ZoomArea:
+    m_HRangeLocked: 0
+    m_VRangeLocked: 0
+    hZoomLockedByDefault: 0
+    vZoomLockedByDefault: 0
+    m_HBaseRangeMin: -566.5
+    m_HBaseRangeMax: 566.5
+    m_VBaseRangeMin: -448.5
+    m_VBaseRangeMax: 448.5
+    m_HAllowExceedBaseRangeMin: 1
+    m_HAllowExceedBaseRangeMax: 1
+    m_VAllowExceedBaseRangeMin: 1
+    m_VAllowExceedBaseRangeMax: 1
+    m_ScaleWithWindow: 0
+    m_HSlider: 0
+    m_VSlider: 0
+    m_IgnoreScrollWheelUntilClicked: 0
+    m_EnableMouseInput: 1
+    m_EnableSliderZoomHorizontal: 0
+    m_EnableSliderZoomVertical: 0
+    m_UniformScale: 1
+    m_UpDirection: 1
+    m_DrawArea:
+      serializedVersion: 2
+      x: 0
+      y: 21
+      width: 1133
+      height: 897
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 566.5, y: 448.5}
+    m_MarginLeft: 0
+    m_MarginRight: 0
+    m_MarginTop: 0
+    m_MarginBottom: 0
+    m_LastShownAreaInsideMargins:
+      serializedVersion: 2
+      x: -566.5
+      y: -448.5
+      width: 1133
+      height: 897
+    m_MinimalGUI: 1
+  m_defaultScale: 1
+  m_LastWindowPixelSize: {x: 1133, y: 918}
+  m_ClearInEditMode: 1
+  m_NoCameraWarning: 1
+  m_LowResolutionForAspectRatios: 01000000000000000000
+  m_XRRenderMode: 0
+  m_RenderTexture: {fileID: 0}
+--- !u!114 &17
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12013, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Scene
+    m_Image: {fileID: 2593428753322112591, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 0
+    y: 73
+    width: 1133
+    height: 918
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData:
+    - dockPosition: 0
+      containerId: overlay-toolbar__top
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: -101, y: -26}
+      snapCorner: 3
+      id: Tool Settings
+      index: 0
+      layout: 1
+    - dockPosition: 0
+      containerId: overlay-toolbar__top
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: -141, y: 149}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 1
+      id: unity-grid-and-snap-toolbar
+      index: 1
+      layout: 1
+    - dockPosition: 1
+      containerId: overlay-toolbar__top
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: unity-scene-view-toolbar
+      index: 0
+      layout: 1
+    - dockPosition: 1
+      containerId: overlay-toolbar__top
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 1
+      id: unity-search-toolbar
+      index: 1
+      layout: 1
+    - dockPosition: 0
+      containerId: overlay-container--left
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: unity-transform-toolbar
+      index: 0
+      layout: 2
+    - dockPosition: 0
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 1
+      snapOffset: {x: 67.5, y: 86}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Orientation
+      index: 0
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Light Settings
+      index: 0
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Camera
+      index: 1
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Cloth Constraints
+      index: 2
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Cloth Collisions
+      index: 3
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Navmesh Display
+      index: 4
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Agent Display
+      index: 5
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Obstacle Display
+      index: 6
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Occlusion Culling
+      index: 7
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Physics Debugger
+      index: 8
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Scene Visibility
+      index: 9
+      layout: 4
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 0, y: 0}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Scene View/Particles
+      index: 10
+      layout: 4
+  m_WindowGUID: 227b0e843ff214247a5b5ea2b14cd3c6
+  m_Gizmos: 1
+  m_OverrideSceneCullingMask: 6917529027641081856
+  m_SceneIsLit: 1
+  m_SceneLighting: 1
+  m_2DMode: 0
+  m_isRotationLocked: 0
+  m_PlayAudio: 0
+  m_AudioPlay: 0
+  m_Position:
+    m_Target: {x: 0, y: 0, z: 0}
+    speed: 2
+    m_Value: {x: 0, y: 0, z: 0}
+  m_RenderMode: 0
+  m_CameraMode:
+    drawMode: 0
+    name: Shaded
+    section: Shading Mode
+  m_ValidateTrueMetals: 0
+  m_DoValidateTrueMetals: 0
+  m_ExposureSliderValue: 0
+  m_SceneViewState:
+    m_AlwaysRefresh: 0
+    showFog: 1
+    showSkybox: 1
+    showFlares: 1
+    showImageEffects: 1
+    showParticleSystems: 1
+    showVisualEffectGraphs: 1
+    m_FxEnabled: 1
+  m_Grid:
+    xGrid:
+      m_Fade:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+      m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
+      m_Pivot: {x: 0, y: 0, z: 0}
+      m_Size: {x: 0, y: 0}
+    yGrid:
+      m_Fade:
+        m_Target: 1
+        speed: 2
+        m_Value: 1
+      m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
+      m_Pivot: {x: 0, y: 0, z: 0}
+      m_Size: {x: 1, y: 1}
+    zGrid:
+      m_Fade:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+      m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
+      m_Pivot: {x: 0, y: 0, z: 0}
+      m_Size: {x: 0, y: 0}
+    m_ShowGrid: 1
+    m_GridAxis: 1
+    m_gridOpacity: 0.5
+  m_Rotation:
+    m_Target: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+    speed: 2
+    m_Value: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+  m_Size:
+    m_Target: 10
+    speed: 2
+    m_Value: 10
+  m_Ortho:
+    m_Target: 0
+    speed: 2
+    m_Value: 0
+  m_CameraSettings:
+    m_Speed: 1
+    m_SpeedNormalized: 0.5
+    m_SpeedMin: 0.01
+    m_SpeedMax: 2
+    m_EasingEnabled: 1
+    m_EasingDuration: 0.4
+    m_AccelerationEnabled: 1
+    m_FieldOfViewHorizontalOrVertical: 60
+    m_NearClip: 0.03
+    m_FarClip: 10000
+    m_DynamicClip: 1
+    m_OcclusionCulling: 0
+  m_LastSceneViewRotation: {x: 0, y: 0, z: 0, w: 0}
+  m_LastSceneViewOrtho: 0
+  m_ReplacementShader: {fileID: 0}
+  m_ReplacementString: 
+  m_SceneVisActive: 1
+  m_LastLockedObject: {fileID: 0}
+  m_ViewIsLockedToObject: 0
+--- !u!114 &18
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12061, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Hierarchy
+    m_Image: {fileID: 7966133145522015247, guid: 0000000000000000d000000000000000, type: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 1134
+    y: 73
+    width: 319
+    height: 392
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_SceneHierarchy:
+    m_TreeViewState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: a64e0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 30f9ffff8ef9ffff34fbffff
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 0}
+      m_SearchString: 
+    m_ExpandedScenes: []
+    m_CurrenRootInstanceID: 0
+    m_LockTracker:
+      m_IsLocked: 0
+    m_CurrentSortingName: TransformSorting
+  m_WindowGUID: e3e1d56fc87bf744eb30d301a5cf22a8
