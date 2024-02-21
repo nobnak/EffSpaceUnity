@@ -1,15 +1,15 @@
 {
-	"author": {
-		"name": "Nakata Nobuyuki",
-		"email": "nobu.nakata@gmail.com"
-	},
-	"name": "jp.nobnak.effspace",
-	"displayName": "Efficient Spatial Data Structure",
-	"version": "1.0.0",
-	"samples": [],
-	"dependencies": {
-		"com.unity.mathematics": "1.2.6",
-		"jp.nobnak.gist2": "1.4.3",
-		"jp.nobnak.llgraphics": "1.0.5"
-	}
+  "author": {
+    "name": "Nakata Nobuyuki",
+    "email": "nobu.nakata@gmail.com"
+  },
+  "name": "jp.nobnak.effspace",
+  "displayName": "Efficient Spatial Data Structure",
+  "version": "1.0.1",
+  "samples": [],
+  "dependencies": {
+    "com.unity.mathematics": "1.2.6",
+    "jp.nobnak.gist2": "1.4.3",
+    "jp.nobnak.llgraphics": "1.0.5"
+  }
 }
