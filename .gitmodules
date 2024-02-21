@@ -1,0 +1,9 @@
+[submodule "Assets/Packages/EffSpaceUnity"]
+	path = Assets/Packages/EffSpaceUnity
+	url = https://github.com/nobnak/EffSpaceUnity.git
+[submodule "Assets/Packages/LLGraphicsUnity"]
+	path = Assets/Packages/LLGraphicsUnity
+	url = https://github.com/nobnak/LLGraphicsUnity
+[submodule "Assets/Packages/Gist2"]
+	path = Assets/Packages/Gist2
+	url = https://github.com/nobnak/Gist2.git
