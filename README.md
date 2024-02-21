@@ -9,31 +9,72 @@
 ## Usage
 
 ```csharp
-using EffSpace.Extensions;
-using EffSpace.Models;
-using Unity.Mathematics;
+public GameObject prefab;
 
-var n = 100000;
-var screen = new float2(1920, 1080);
-var hCellCount = 1 << 5;
+float2 screen;
+FPointGrid grid;
+int2 cellCount;
+float2 cellSize;
+float2 fieldSize;
 
-FPointGridExt.RecommendGrid(screen, hCellCount, out var cellCount, out var cellSize);
-var fieldSize = cellSize * cellCount
+float4x4 screenToWorld;
+List<Particle> particleList;
 
-var grid = new FPointGrid(cellCount, cellSize, float2.zero);
-var elements = new List<int>();
-var points = new List<float2>();
+void Initialize() {
+    var c = Camera.main;
+    screen = new float2(c.pixelWidth, c.pixelHeight);
 
-var rand = Unity.Mathematics.Random.CreateFromIndex(31);
-for (var id = 0; id < n; id++) {
-    var position = new float2(rand.NextFloat2(screen));
-    var element_id = grid.Insert(id, position);
-    elements.Add(element_id);
-    points.Add(position);
+    var hSize = c.orthographicSize;
+    var aspect = c.aspect;
+    screenToWorld = float4x4.TRS(
+        new float3(-aspect * hSize, -hSize, 0f),
+        quaternion.identity,
+        new float3(2f * aspect * hSize / screen.x, 2f * hSize / screen.y, 1f)
+        );
+
+    var grid = 1 << 5;
+    FPointGridExt.RecommendGrid(screen, grid, out cellCount, out cellSize);
+    fieldSize = cellCount * cellSize;
+    grid = new FPointGrid(cellCount, cellSize, float2.zero);
+
+    var rand = Unity.Mathematics.Random.CreateFromIndex(31);
+    particleList = new List<Particle>();
+    for (var i = 0; i < tuner.count; i++) {
+        var p = new Particle();
+        var seed = rand.NextFloat2(float2.zero, screen);
+
+        var go = Instantiate(prefab);
+        go.transform.localPosition = math.transform(screenToWorld, new float3(seed, 0f));
+
+        var e = grid.Insert(i, seed);
+
+        p.id = i;
+        p.element = e;
+        p.go = go;
+        p.seed = seed;
+        p.pos = new float3(seed, 0f);
+        particleList.Add(p);
+    }
 }
+void Update() {
+    var t = Time.time * 0.5f;
+    var dt = Time.deltaTime * 0.1f;
+    for (var i = 0; i < particleList.Count; i++) {
+        var p = particleList[i];
+        if (p.element >= 0) grid.Remove(p.element);
 
-foreach(var element_id in grid.Query(points[0] - cellSize, points[0] + cellSize))
-    ;
+        var pos = p.pos.xy;
+        pos += dt * screen * new float2(
+            noise.snoise(new float3(p.seed, t)),
+            noise.snoise(new float3(-p.seed, t)));
+        pos -= screen * math.floor(pos / screen);
+
+        p.pos = new float3(pos, p.pos.z);
+        p.go.transform.localPosition = math.transform(screenToWorld, p.pos);
+
+        p.element = grid.Insert(p.id, pos);
+    }
+}
 ```
 
 ## Data Structures
