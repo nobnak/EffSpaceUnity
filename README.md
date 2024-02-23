@@ -8,6 +8,7 @@
 
 ## Usage
 
+### Initialize
 ```csharp
 public GameObject prefab;
 
@@ -41,21 +42,25 @@ void Initialize() {
     particleList = new List<Particle>();
     for (var i = 0; i < tuner.count; i++) {
         var p = new Particle();
-        var seed = rand.NextFloat2(float2.zero, screen);
+        var pos = rand.NextFloat2(float2.zero, screen);
 
         var go = Instantiate(prefab);
         go.transform.localPosition = math.transform(screenToWorld, new float3(seed, 0f));
 
-        var e = grid.Insert(i, seed);
+        var e = grid.Insert(i, pos);
 
         p.id = i;
         p.element = e;
         p.go = go;
         p.seed = seed;
-        p.pos = new float3(seed, 0f);
+        p.pos = new float3(pos, 0f);
         particleList.Add(p);
     }
 }
+```
+
+### Update
+```csharp
 void Update() {
     var t = Time.time * 0.5f;
     var dt = Time.deltaTime * 0.1f;
@@ -74,6 +79,29 @@ void Update() {
 
         p.element = grid.Insert(p.id, pos);
     }
+}
+```
+
+### Query
+```csharp
+int Neareset(Particle p) {
+    var pos = p.pos.xy;
+    var min_dist_sq = float.MaxValue;
+    var min_id = -1;
+    foreach (var e in grid.Query(pos - qrange, pos + qrange)) {
+        if (e == p.element) continue;
+
+        var eq = grid.grid.elements[e];
+        var q = particleList[eq.id];
+
+        var qpos = q.pos.xy;
+        var dist_sq = math.distancesq(qpos, pos);
+        if (dist_sq < min_dist_sq) {
+            min_dist_sq = dist_sq;
+            min_id = e;
+        }
+    }
+    return min_id;
 }
 ```
 
