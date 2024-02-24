@@ -126,7 +126,6 @@ namespace EffSpace.Examples {
 			var qrange = 0.1f * screen.yy;
 			var search_limit_dist_sq = 2f * qrange.y * qrange.y;
 			var colorLerp = new float2(0, 10f * (float)particleList.Count / (cellCount.x * cellCount.y));
-			Debug.Log($"Color lerp: {colorLerp}");
 			var color0 = Color.clear;
 			var color1 = Color.cyan;
 

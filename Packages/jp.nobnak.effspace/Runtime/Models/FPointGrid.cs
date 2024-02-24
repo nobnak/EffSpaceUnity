@@ -9,7 +9,7 @@ namespace EffSpace.Models {
         public const int intCellSize = 100;
 
         public readonly int2 cellCount;
-        public readonly int2 cellSize;
+        public readonly float2 cellSize;
 
         public readonly float2 toIntScale;
         public readonly float2 toIntOffset;
@@ -21,9 +21,9 @@ namespace EffSpace.Models {
             this.toIntOffset = toIntScale * fieldOffset;
 
             this.cellCount = cellCount;
-			this.cellSize = new int2(intCellSize);
+			this.cellSize = fCellSize;
 
-            this.grid = new PointGrid(cellCount, cellSize);
+            this.grid = new PointGrid(cellCount, new int2(intCellSize));
         }
 
 		#region interface
