@@ -25,10 +25,12 @@ On Razer Blade stealth 13 (2020)
 
 ### Initialize
 ```csharp
-var grid = 1 << 5;
+var verticalCellCount = 1 << 5;
 var particleCount = 1000;
 var screenSize = new int2(1920, 1080);
-FPointGridExt.RecommendGrid(screenSize, grid, out var cellCount, out var cellSize);
+FPointGridExt.RecommendGrid(screenSize, verticalCellCount, out var cellCount, out var cellSize);
+var grid = new FPointGrid(cellCount, cellSize, float2.zero);
+
 for (var i = 0; i < particleCount; i++) {
     var pos = rand.NextFloat2(float2.zero, screenSize);
     element_ids[i] = grid.Insert(i, pos);
