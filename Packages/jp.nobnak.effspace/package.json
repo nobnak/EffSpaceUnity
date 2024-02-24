@@ -5,7 +5,7 @@
   },
   "name": "jp.nobnak.effspace",
   "displayName": "Efficient Spatial Data Structure",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "samples": [],
   "dependencies": {
     "com.unity.mathematics": "1.2.6",
