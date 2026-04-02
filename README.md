@@ -128,6 +128,8 @@ for (var i = 0; i < particleCount; i++) {
 
 ### Query
 
+`grid` is a `FPointGrid` (or use `pointGrid.Query(min, max)` on a `PointGrid` with `int2` bounds). The result of `Query` is not `IEnumerable<int>`; use `foreach` or manual `GetEnumerator()` / `MoveNext()` / `Current`. To collect results with LINQ, copy into a `List<int>` (or similar) in a loop first.
+
 ```csharp
 int Nearest(int i) {
     var pos = particle_pos[i];
@@ -155,6 +157,8 @@ int Nearest(int i) {
 [![Demo](http://img.youtube.com/vi/_xvoNZ3kExc/hqdefault.jpg)](https://www.youtube.com/shorts/_xvoNZ3kExc)
 
 ## Performance
+
+**Query:** struct enumerators avoid the per-`foreach` iterator allocation that `yield return` / `IEnumerable<int>` would incur on hot paths (see `PointGrid.QueryEnumerable` / `QueryEnumerator`).
 
 On Razer Blade Stealth 13 (2020)
 
