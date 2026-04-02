@@ -21,8 +21,10 @@ A separate sample-focused project: [Test-EffSpaceUnity](https://github.com/nobna
 - **Uniform grid** — O(1) cell lookup; each cell stores a singly linked list of element indices.
 - **`PointGrid`** — Integer lattice (`int2` positions, fixed cell size in integer space).
 - **`FPointGrid`** — World-space `float2`; maps to the internal `PointGrid` via a fixed int scale (see `FPointGrid.intCellSize`).
-- **Queries** — AABB overlap over grid cells; optional exact test on stored positions.
+- **Queries** — AABB overlap over grid cells; optional exact test on stored positions. `PointGrid.Query` / `FPointGrid.Query` return a **stack-based struct enumerator** (duck-typed `foreach`), not `IEnumerable<int>`, so **per-query heap allocation from iterators is avoided** (LINQ does not apply directly).
 - **Roadmap** — QuadTree: TODO.
+
+**Upgrading from package 1.x:** `IPointField<T>` no longer declares `Query`. Spatial queries are only on [`PointGrid`](Packages/jp.nobnak.effspace/Runtime/Models/PointGrid.cs) and [`FPointGrid`](Packages/jp.nobnak.effspace/Runtime/Models/FPointGrid.cs); the return type is not `IEnumerable<int>`, so code that used LINQ on `Query(...)` needs a manual loop or an intermediate list.
 
 ## Requirements
 
@@ -70,7 +72,8 @@ Or use **Add package by name** and enter:
 | Grids       | [`PointGrid`](Packages/jp.nobnak.effspace/Runtime/Models/PointGrid.cs) (`int2`), [`FPointGrid`](Packages/jp.nobnak.effspace/Runtime/Models/FPointGrid.cs) (`float2`) |
 | Core types  | [`Element`](Packages/jp.nobnak.effspace/Runtime/Models/Element.cs), [`LinkedElementNode`](Packages/jp.nobnak.effspace/Runtime/Models/LinkedElementNode.cs), [`FreeList<T>`](Packages/jp.nobnak.effspace/Runtime/Collections/FreeList.cs) |
 | Extensions  | [`PointGridExt`](Packages/jp.nobnak.effspace/Runtime/Extensions/PointGridExt.cs), [`FPointGridExt`](Packages/jp.nobnak.effspace/Runtime/Extensions/FPointGridExt.cs) (`RecommendGrid`, coordinate mapping, Burst-friendly helpers) |
-| Interfaces  | [`IPointField<TPos>`](Packages/jp.nobnak.effspace/Runtime/Interfaces/IPointField.cs), add/remove handlers |
+| Interfaces  | [`IPointField<TPos>`](Packages/jp.nobnak.effspace/Runtime/Interfaces/IPointField.cs) — `Clear` / `Insert` / `Remove` and add/remove events only (**spatial query is not on this interface**; use the concrete grid types below) |
+| Query API   | [`PointGrid.QueryEnumerable`](Packages/jp.nobnak.effspace/Runtime/Models/PointGrid.cs) / [`FPointGrid.QueryEnumerable`](Packages/jp.nobnak.effspace/Runtime/Models/FPointGrid.cs) — `foreach` without `IEnumerable` allocation |
 
 Namespace: **`EffSpace.*`**
 
@@ -79,7 +82,7 @@ Namespace: **`EffSpace.*`**
 1. **Partitioning** — The domain is split into a regular 2D grid. A point’s cell index is derived from its position and cell size (`PointGrid` uses integer math; `FPointGrid` converts `float2` → scaled `int2` first).
 2. **Insertion** — Allocate an `Element` (user `id` + lattice position), push a `LinkedElementNode` onto that cell’s list head in `grid[]`. Invalid / out-of-bounds positions can yield a sentinel “no element” index (see constants in [`C`](Packages/jp.nobnak.effspace/Runtime/Constants/C.cs)).
 3. **Removal** — Walk the cell’s linked list, unlink the node, recycle indices via `FreeList`.
-4. **Query** — Convert query AABB to cell index range, iterate touched cells, traverse each list, yield elements whose stored position lies inside the query AABB.
+4. **Query** — Convert query AABB to cell index range, iterate touched cells, traverse each list, and emit element indices whose stored position lies inside the query AABB (exposed as a struct enumerator for `foreach`).
 
 Average-case neighbor search is good when particles are evenly spread; worst-case degrades if many objects pile into the same cell.
 
