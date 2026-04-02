@@ -5,11 +5,12 @@
   },
   "name": "jp.nobnak.effspace",
   "displayName": "Efficient Spatial Data Structure",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "samples": [],
   "dependencies": {
     "com.unity.mathematics": "1.2.6",
     "jp.nobnak.gist2": "1.4.3",
     "jp.nobnak.llgraphics": "1.0.5"
-  }
+  },
+  "description": "https://openupm.com/packages/jp.nobnak.effspace/"
 }
