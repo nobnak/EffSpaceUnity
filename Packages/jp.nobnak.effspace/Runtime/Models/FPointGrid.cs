@@ -1,6 +1,5 @@
 using EffSpace.Extensions;
 using EffSpace.Interfaces;
-using System.Collections.Generic;
 using Unity.Mathematics;
 
 namespace EffSpace.Models {
@@ -43,15 +42,25 @@ namespace EffSpace.Models {
             return grid.Insert(id, ipos);
         }
         public void Remove(int element) => grid.Remove(element);
-        public IEnumerable<int> Query(float2 aabb_min, float2 aabb_max) {
+        public QueryEnumerable Query(float2 aabb_min, float2 aabb_max) {
             FPointGridExt.ToIntRangeFromAABB(
                 aabb_min, aabb_max, toIntScale, toIntOffset,
                 out var i_aabb_min, out var i_aabb_max);
-            return grid.Query(i_aabb_min, i_aabb_max);
+            return new QueryEnumerable(grid.Query(i_aabb_min, i_aabb_max));
         }
         public void Clear() {
             grid.Clear();
         }
 		#endregion
+
+		public readonly struct QueryEnumerable {
+			readonly PointGrid.QueryEnumerable inner;
+
+			internal QueryEnumerable(PointGrid.QueryEnumerable inner) {
+				this.inner = inner;
+			}
+
+			public PointGrid.QueryEnumerator GetEnumerator() => inner.GetEnumerator();
+		}
 	}
 }

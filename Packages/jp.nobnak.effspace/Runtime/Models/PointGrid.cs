@@ -2,7 +2,6 @@ using EffSpace.Collections;
 using EffSpace.Constants;
 using EffSpace.Extensions;
 using EffSpace.Interfaces;
-using System.Collections.Generic;
 using Unity.Mathematics;
 
 namespace EffSpace.Models {
@@ -85,22 +84,8 @@ namespace EffSpace.Models {
             elements.Remove(element);
 			OnRemove?.Invoke(index, element);
 		}
-        public IEnumerable<int> Query(int2 aabb_min, int2 aabb_max) {
-            AABBExt.RangeFromAABB(cellCount, cellSize, aabb_min, aabb_max, out var bmin, out var bmax);
-            for (var iy = bmin.y; iy <= bmax.y; iy++) {
-                var yoffset = iy * cellCount.x;
-                for (var ix = bmin.x; ix <= bmax.x; ix++) {
-                    var cell = grid[ix + yoffset];
-                    while (cell != C.SENTRY) {
-                        var leaf = leaves[cell];
-                        var e = elements[leaf.element];
-                        if (AABBExt.IsIn(e.pos, aabb_min, aabb_max))
-                            yield return leaf.element;
-                        cell = leaf.next;
-                    }
-                }
-            }
-        }
+        public QueryEnumerable Query(int2 aabb_min, int2 aabb_max)
+            => new QueryEnumerable(this, aabb_min, aabb_max);
         public void Clear() {
             elements.Clear();
             leaves.Clear();
@@ -108,5 +93,73 @@ namespace EffSpace.Models {
                 grid[i] = -1;
         }
 		#endregion
+
+		public readonly struct QueryEnumerable {
+			readonly PointGrid grid;
+			readonly int2 aabb_min;
+			readonly int2 aabb_max;
+			readonly int2 bmin;
+			readonly int2 bmax;
+
+			internal QueryEnumerable(PointGrid grid, int2 aabb_min, int2 aabb_max) {
+				this.grid = grid;
+				this.aabb_min = aabb_min;
+				this.aabb_max = aabb_max;
+				AABBExt.RangeFromAABB(grid.cellCount, grid.cellSize, aabb_min, aabb_max, out bmin, out bmax);
+			}
+
+			public QueryEnumerator GetEnumerator()
+				=> new QueryEnumerator(grid, aabb_min, aabb_max, bmin, bmax);
+		}
+
+		public struct QueryEnumerator {
+			PointGrid grid;
+			int2 aabb_min;
+			int2 aabb_max;
+			int2 bmin;
+			int2 bmax;
+			int ix;
+			int iy;
+			int curr;
+			int current;
+
+			internal QueryEnumerator(PointGrid grid, int2 aabb_min, int2 aabb_max, int2 bmin, int2 bmax) {
+				this.grid = grid;
+				this.aabb_min = aabb_min;
+				this.aabb_max = aabb_max;
+				this.bmin = bmin;
+				this.bmax = bmax;
+				ix = bmin.x;
+				iy = bmin.y;
+				curr = grid.grid[ix + iy * grid.cellCount.x];
+				current = default;
+			}
+
+			public int Current => current;
+
+			public bool MoveNext() {
+				while (iy <= bmax.y) {
+					while (curr != C.SENTRY) {
+						var leaf = grid.leaves[curr];
+						var elemIndex = leaf.element;
+						curr = leaf.next;
+						var e = grid.elements[elemIndex];
+						if (AABBExt.IsIn(e.pos, aabb_min, aabb_max)) {
+							current = elemIndex;
+							return true;
+						}
+					}
+					ix++;
+					if (ix > bmax.x) {
+						ix = bmin.x;
+						iy++;
+					}
+					if (iy > bmax.y)
+						break;
+					curr = grid.grid[ix + iy * grid.cellCount.x];
+				}
+				return false;
+			}
+		}
 	}
 }
