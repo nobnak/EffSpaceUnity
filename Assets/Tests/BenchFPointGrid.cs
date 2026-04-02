@@ -52,7 +52,8 @@ public class BenchFPointGrid {
 				.ToArray();
 			Measure.Method(() => {
 				for (var i = 0; i < query.Length; i++) {
-					grid.Query(query[i].min, query[i].max).Count();
+					var c = 0;
+					foreach (var _ in grid.Query(query[i].min, query[i].max)) c++;
 				}
 			}).SampleGroup(sg)
 			.Run();

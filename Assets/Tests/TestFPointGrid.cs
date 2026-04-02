@@ -1,13 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using EffSpace.Models;
 using NUnit.Framework;
 using Unity.Mathematics;
-using UnityEngine;
-using UnityEngine.TestTools;
 
 public class TestFPointGrid {
+
+	static int QueryCount(FPointGrid grid, float2 aabbMin, float2 aabbMax) {
+		var n = 0;
+		foreach (var _ in grid.Query(aabbMin, aabbMax)) n++;
+		return n;
+	}
+
+	static bool QueryContains(FPointGrid grid, float2 aabbMin, float2 aabbMax, int element) {
+		foreach (var x in grid.Query(aabbMin, aabbMax))
+			if (x == element) return true;
+		return false;
+	}
 
 	[Test]
 	public void TestFPointGridSimplePasses() {
@@ -25,20 +32,18 @@ public class TestFPointGrid {
 		Assert.AreEqual(3, grid.grid.elements.Capacity);
 		Assert.AreEqual(3, grid.grid.leaves.Capacity);
 
-		var q0 = grid.Query(new float2(0.5f), new float2(1f)).ToArray();
-		Assert.IsTrue(q0.Contains(e1));
-		Assert.IsTrue(q0.Contains(e2));
-		Assert.AreEqual(2, q0.Length);
+		Assert.IsTrue(QueryContains(grid, new float2(0.5f), new float2(1f), e1));
+		Assert.IsTrue(QueryContains(grid, new float2(0.5f), new float2(1f), e2));
+		Assert.AreEqual(2, QueryCount(grid, new float2(0.5f), new float2(1f)));
 
-		var q1 = grid.Query(new float2(0.5f, 0f), new float2(1f, 0.5f)).ToArray();
-		Assert.AreEqual(0, q1.Length);
+		Assert.AreEqual(0, QueryCount(grid, new float2(0.5f, 0f), new float2(1f, 0.5f)));
 
 		grid.Remove(e0);
-		Assert.AreEqual(2, grid.Query(float2.zero, new float2(1f)).Count());
+		Assert.AreEqual(2, QueryCount(grid, float2.zero, new float2(1f)));
 		grid.Remove(e1);
-		Assert.AreEqual(1, grid.Query(float2.zero, new float2(1f)).Count());
+		Assert.AreEqual(1, QueryCount(grid, float2.zero, new float2(1f)));
 		grid.Remove(e2);
-		Assert.AreEqual(0, grid.Query(float2.zero, new float2(1f)).Count());
+		Assert.AreEqual(0, QueryCount(grid, float2.zero, new float2(1f)));
 	}
 }
 

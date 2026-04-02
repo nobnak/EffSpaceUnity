@@ -8,6 +8,18 @@ using EffSpace.Extensions;
 
 public class TestPointGrid {
 
+    static bool QueryContains(PointGrid grid, int2 aabbMin, int2 aabbMax, int element) {
+        foreach (var x in grid.Query(aabbMin, aabbMax))
+            if (x == element) return true;
+        return false;
+    }
+
+    static int QueryCount(PointGrid grid, int2 aabbMin, int2 aabbMax) {
+        var n = 0;
+        foreach (var _ in grid.Query(aabbMin, aabbMax)) n++;
+        return n;
+    }
+
     public static readonly ProfilerMarker P_AddElement = new ProfilerMarker("Add element");
     public static readonly ProfilerMarker P_RemoveElement = new ProfilerMarker("Remove element");
 
@@ -33,12 +45,18 @@ public class TestPointGrid {
             elements.Add(e);
             ids.Add(id);
 
-            Assert.IsTrue(grid.Query(p.xy, p.xy).Contains(e));
+            Assert.IsTrue(QueryContains(grid, p.xy, p.xy, e));
             Assert.AreEqual(id, grid.elements[e].id);
         }
 
-        Assert.AreEqual(elements[0], grid.Query(points[0], points[0]).First());
-        var q01 = grid.Query(points[1], points[1]).ToArray();
+        var first0 = int.MinValue;
+        foreach (var x in grid.Query(points[0], points[0])) {
+            first0 = x;
+            break;
+        }
+        Assert.AreEqual(elements[0], first0);
+        var q01 = new List<int>();
+        foreach (var x in grid.Query(points[1], points[1])) q01.Add(x);
         foreach (var i in elements.Skip(1).Take(2))
             Assert.IsTrue(q01.Contains(i));
 
@@ -48,10 +66,10 @@ public class TestPointGrid {
             var id = ids[last];
             var p = points[last];
 
-            Assert.AreEqual(elements.Count, grid.Query(new int2(0, 0), new int2(2, 2)).Count());
-            Assert.IsTrue(grid.Query(p, p).Contains(e));
+            Assert.AreEqual(elements.Count, QueryCount(grid, new int2(0, 0), new int2(2, 2)));
+            Assert.IsTrue(QueryContains(grid, p, p, e));
             grid.Remove(e);
-            Assert.IsFalse(grid.Query(p, p).Contains(e));
+            Assert.IsFalse(QueryContains(grid, p, p, e));
 
             elements.RemoveAt(last);
         }
@@ -82,8 +100,7 @@ public class TestPointGrid {
         for (var i = 0; i < n; i++) {
             var p = points[i];
             var e = elements[i];
-            var cell = grid.Query(p, p).ToArray();
-            Assert.IsTrue(cell.Contains(e));
+            Assert.IsTrue(QueryContains(grid, p, p, e));
         }
 
         var samples = 1000;

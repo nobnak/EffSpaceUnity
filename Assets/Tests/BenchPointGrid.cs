@@ -52,7 +52,8 @@ public class BenchPointGrid {
                 .ToArray();
             Measure.Method(() => {
                 for (var i = 0; i < queryAABB.Length; i++) {
-                    grid.Query(queryAABB[i].p, queryAABB[i].Item2).Count();
+                    var c = 0;
+                    foreach (var _ in grid.Query(queryAABB[i].p, queryAABB[i].Item2)) c++;
                 }
             })
             .SampleGroup(sg)
