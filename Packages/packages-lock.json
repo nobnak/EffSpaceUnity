@@ -130,13 +130,12 @@
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "com.unity.mathematics": "1.2.6",
-        "jp.nobnak.gist2": "1.4.3",
-        "jp.nobnak.llgraphics": "1.0.5"
+        "com.unity.burst": "1.6.6",
+        "com.unity.mathematics": "1.2.6"
       }
     },
     "jp.nobnak.gist2": {
-      "version": "1.4.3",
+      "version": "1.0.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -147,7 +146,7 @@
     },
     "jp.nobnak.llgraphics": {
       "version": "1.0.5",
-      "depth": 1,
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.2.6",
